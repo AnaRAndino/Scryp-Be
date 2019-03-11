@@ -1,0 +1,14 @@
+{
+  "name": "scryp-be",
+  "version": "1.0.0",
+  "description": "Proyecto de Sistemas Expertos I 2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ana Andino",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

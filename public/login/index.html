@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Netflix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/costum.css" />
+   
+</head>
+<body>
+    <div class="covertura" style="height: 100%;">
+        <header class="divLogo">
+            <img src="img/logo.png" style="height:50px; width:97x;">
+        </header>
+        <div class="contendorForm">
+            <div>
+                <h1 class="letInici" style="color:white; font-weight: 550">Inicia sesión</h1>
+            </div>
+           <form class="form-login">
+                <input class="form-control email " type="text" placeholder="Email o número de teléfono">
+                <input class="form-control" type="password" placeholder="Contraseña">
+                <input type="button" class="btn btn-danger" value="Iniciar sesión" id="iniciar-sesion" onlick="loguear()">
+                <div class="container" style="padding-left:0px; padding-right:0px; margin-top: 10px">
+                    <div class="row ">
+                        <div class="col-md-6 col-sm-6 col-lg-6" > 
+                            <input type="checkbox" class="form-check-input" id="form-check-input">
+                            <label class="form-check-label" for="form-check-input">Recuérdame</label>  
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <a href="#" class="ayuda">¿Necesitas ayuda?</a>
+                        </div>
+                    </div>
+                </div>
+           </form>
+        </div>
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/controlador.js"></script>
+    
+</body>
+</html>

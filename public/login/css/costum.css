@@ -1,0 +1,140 @@
+body{
+    /* background-image: url('../img/1.gif'); */
+     /* background-color: rgba(0, 4, 53);  */
+    /* background-color: rgb(255, 255, 255); */
+    /* background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    z-index: -1;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.contenido{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.formulario{
+    height: 100%;
+}
+.panelLeft{
+    background-image: url('../img/2.gif'); 
+     background-color: rgb(255, 255, 255); 
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;  
+    padding-right: 0px;
+    padding-left: 0px;
+    height: 650px;
+
+}
+
+.covertura{ 
+    height: 100%;
+    width: 100%;
+     background-color: rgba(0, 4, 53, 0.698); 
+    z-index: 1; 
+    position: absolute; 
+}  
+
+.panelRight{
+    height: 100%;
+    background-color: #ffffff;
+    height: 650px;
+}
+.contendorForm{
+    background: linear-gradient(45deg, rgba(0, 4, 53, 0.945));
+    margin-top:100px;
+    padding: 60px 68px 40px 68px;
+    box-shadow: rgb(95, 96, 104);
+}
+
+.letInici{
+    font-size: 32px;  
+    margin-bottom: 28px;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    
+}
+
+.form-login input[type="text"], .form-login input[type="password"]{
+    background-color: #ffffff;
+    width: 100%;
+    margin-bottom: 15px;
+    border: solid 2px rgb(192, 192, 192);
+    height: 50px;
+    box-sizing: border-box;
+    
+}
+
+.remenber input[type="chechbox"]{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container{
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.form-login input[type="button"]{
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    font-weight: 700;
+    background-color: #5c6ac4;
+    border-color: #5c6ac4;
+}
+
+.form-login input[type="button"]:hover{
+    background-color: rgba(0, 4, 53, 0.945);
+    border-color: rgb(66, 76, 143);
+}
+
+.form-check-input{
+    margin-left: 0 !important;
+    margin-right: 5px !important;
+}
+
+.form-check-label{
+    margin-left: 20px;
+    color: #a8a8a8;
+}
+
+.ayuda{
+    color: #a8a8a8;
+    text-decoration: none;
+}
+
+
+.container a :hover{
+    text-decoration: underline;
+    color:#E50914;
+}
+
+.campo-error{  
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 3px  rgb(200, 0, 0) !important;
+}
+
+/* .email:focus{
+  outline: none;
+  border: none;
+  box-shadow: none;
+} */
+
+/* ------------------------------- */
+
