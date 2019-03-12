@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- <link href="../css/mdb.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../css/customDasboard.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 </head>
 
 <body>
@@ -39,9 +40,6 @@
                         <button class="btn btn-primary">Crear Proyecto</button>
                     </div>
 
-
-
-
                     <div class="row general">
                         <div class="sidebar-menu">
                             <ul class="lista-sidebar">
@@ -50,52 +48,44 @@
                                 </li>
                                 <li class="sidebar-dropdown">
                                     <a href="#">
-                                        <i class="fa fa-shopping-cart fa-2x"></i>
-                                        <span>Dashboard</span>
-                                        <span class="badge badge-pill badge-danger">New</span>
+                                        <i class="fas fa-folder fa-2x"></i>
+                                        <span>Mis proyectos</span>
+                                        <!-- <span class="badge badge-pill badge-danger">New</span> -->
                                     </a>
                                     <div class="sidebar-submenu">
                                         <ul>
                                             <li>
-                                                <a href="#">Dashboard 1
-                                                    <span class="badge badge-pill badge-success">Pro</span>
+                                                <a>
+                                                    <!-- <span class="badge badge-pill badge-success">Pro</span> -->
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">Dashboard 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Dashboard 3</a>
+                                                <a href="#">Proyectos Recientes</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="sidebar-dropdown">
                                     <a href="#">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>E-commerce</span>
-                                        <span class="badge badge-pill badge-primary">3</span>
+                                        <i class="fas fa-user-friends"></i>
+
+                                        <span>Colaboración</span>
+                                        <!-- <span class="badge badge-pill badge-primary">3</span> -->
                                     </a>
                                     <div class="sidebar-submenu">
                                         <ul>
                                             <li>
-                                                <a href="#">Products
+                                                <a href="#">Recientes Colaboración
 
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#">Orders</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Credit cart</a>
-                                            </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="sidebar-dropdown">
                                     <a href="#">
-                                        <i class="far fa-gem"></i>
-                                        <span>Components</span>
+                                        <i class="fas fa-star"></i>
+                                        <span>Destacados</span>
                                     </a>
                                     <div class="sidebar-submenu">
                                         <ul>
@@ -105,53 +95,6 @@
                                             <li>
                                                 <a href="#">Panels</a>
                                             </li>
-                                            <li>
-                                                <a href="#">Tables</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Icons</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Forms</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="sidebar-dropdown">
-                                    <a href="#">
-                                        <i class="fa fa-chart-line"></i>
-                                        <span>Charts</span>
-                                    </a>
-                                    <div class="sidebar-submenu">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Pie chart</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Line chart</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Bar chart</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Histogram</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="sidebar-dropdown">
-                                    <a href="#">
-                                        <i class="fa fa-globe"></i>
-                                        <span>Maps</span>
-                                    </a>
-                                    <div class="sidebar-submenu">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Google maps</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Open street map</a>
-                                            </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -160,16 +103,17 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-calendar"></i>
-                                        <span>Calendar</span>
+                                        <i class="fas fa-money-check-alt"></i>
+                                        <span>Detalles Plan</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-folder"></i>
-                                        <span>Examples</span>
+                                        <i class="fa fa-calendar"></i>
+                                        <span>Calendar</span>
                                     </a>
                                 </li>
+
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-book"></i>
@@ -178,17 +122,8 @@
                                 </li>
                             </ul>
                         </div>
-
                     </div>
-
-
-
                 </div>
-
-
-
-
-
             </div>
             <!-- -->
             <div class="col-lg-10  col-md-10  col-sm-12 col-xs-12 content-dash">
@@ -199,6 +134,161 @@
                     </nav>
 
                 </header>
+
+                <div class="main">
+                    <div class="main-content">
+                        <div class="container-fluid">
+                            <!-- Begin Profile -->
+                            <div class="panel-profile" style="display:none">
+                                <div class="row">
+                                    <div class="profile-left col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                        <!-- PROFILE HEADER -->
+                                        <div class="profile-header">
+                                            <div class="profile-main">
+                                                <div class="div-img" style="background-image:url('../img/woman-2.jpg')">
+
+                                                </div>
+                                                <h3 class="name">Samuel Gold</h3>
+                                                <span class="online-status status-available">Available</span>
+                                            </div>
+                                            <div class="profile-stat">
+                                                <div class="row">
+                                                    <div class="col-md-4 stat-item">
+                                                        45 <span>Projects</span>
+                                                    </div>
+                                                    <div class="col-md-4 stat-item">
+                                                        15 <span>Awards</span>
+                                                    </div>
+                                                    <div class="col-md-4 stat-item">
+                                                        2174 <span>Points</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- END PROFILE HEADER -->
+                                    </div>
+                                    <div class="profile-Right col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                                        <div class=" row formulario">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="contenedor-form container-fluid">
+                                                    <div class="form row">
+
+                                                        <input type="text" id="codigoPerfil" style="display:none">
+                                                        <input type="text" placeholder="Nombre Usuario" class="form-control frm"
+                                                            id="txtCaratula">
+                                                        <input type="text" placeholder="Nick Name" class="form-control frm"
+                                                            id="txtTitulo">
+                                                        <input type="text" placeholder="Correo Electronico" class="form-control frm"
+                                                            id="txtResumen">
+                                                        <input type="text" placeholder="Contraseña" class="form-control frm"
+                                                            id="txtFecha">
+                                                        <input type="text" placeholder="Edad" class="form-control frm"
+                                                            id="txtCalificacion">
+                                                        <div class="col-md-10 col-sm-10 col-xs-10 divSelectH ">
+                                                            <select name="" id="sltCategoria" class="form-control canal">
+                                                                <option selected="true" disabled="disabled">País</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-2 col-xs-2 divSelect" style="padding-top: 0px; padding-right:10px">
+                                                            <button type="button" class="form-control" onclick="">+</button>
+                                                        </div>
+
+
+                                                        <select name="" id="sltOriginal" class="form-control canal selectT">
+                                                            <option selected="true" disabled="disabled">Género</option>
+                                                            <option value="si"> Si</option>
+                                                            <option value="no"> No</option>
+                                                        </select>
+
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnGuardar">
+                                                            <button type="button" id="btnGuardar" class="btn btn-danger"
+                                                                onclick="" style="float:left">Guardar</button>
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnActualizar">
+                                                            <button type="button" id="btnActualizar" class="btn btn-primary "
+                                                                onclick="">Actualizar</button>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <!-- Begin my proyects -->
+
+                            <div class="panel-my-proyects" style="display:block">
+                                <div class="container-fluid">
+                                    <div class="row fila">
+                                        <!-- 1 -->
+                                        <div class="contenedor-carpeta col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="img-carpeta">
+
+                                            </div>
+                                            <div style="text-align: center">
+                                                <span class="nom-carpeta">Carpeta 1</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- 2 -->
+                                        <div class="contenedor-carpeta col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="img-carpeta">
+
+                                            </div>
+                                            <div style="text-align: center">
+                                                <span class="nom-carpeta">Carpeta 2</span>
+                                            </div>
+                                        </div>
+                                        <!-- 3 -->
+                                        <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                            <div class="img-archivo" style="background-image: url('../img/javascript.png')">
+
+                                            </div>
+                                            <div style="text-align: center">
+                                                <span class="nom-carpeta">Archivo.html</span>
+                                            </div>
+                                        </div>
+
+                                         <!-- 4 -->
+                                         <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="img-archivo" style="background-image: url('../img/html.png')">
+    
+                                                </div>
+                                                <div style="text-align: center">
+                                                    <span class="nom-carpeta">Archivo.html</span>
+                                                </div>
+                                            </div>
+                                             <!-- 5 -->
+                                        <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="img-archivo" style="background-image: url('../img/css.png')">
+    
+                                                </div>
+                                                <div style="text-align: center">
+                                                    <span class="nom-carpeta">Archivo.html</span>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -208,6 +298,7 @@
 
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/controladorDas.js"></script>
 </body>
 
 </html>
