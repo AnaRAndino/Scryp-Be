@@ -6,30 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="../js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- <link href="../css/mdb.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../css/customDasboard.css">
     <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <script src="../js/controladorDas.js"></script>
 </head>
 
 <body>
+
+
+    <nav class="navbar  navbar-light fixed-top">
+        <div class="container-fluid">
+            <div class="row logo" style="width:100%">
+                <div class="div-logo col-lg-2 col-md-2">
+                    <div class="trans-logo">
+                        <div class="cont-logo">
+                            <!-- <img src="../img/code-logo - copia.png" alt=""> -->
+                        </div>
+                        <div class="cont-logo-letras">
+                            <span><b>Scryp-be</b></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
     <div class="container-fluid">
         <div class="row sidebar">
-            <div class="col-lg-2 col-md-2  side-colum">
-                <div class="side-colum-trans container-fluid">
-                    <div class="row logo">
+            <!-- <div class="side-colum" id="wrapper"> -->
+            <div class="col-lg-2 col-md-2  side-colum fixed-left" id="wrapper">
+                <div class="side-colum-trans container-fluid" id="sidebar-wrapper">
+                    <!-- <div class="row logo">
                         <div class="cont-logo">
                             <img src="../img/code-logo - copia.png" alt="">
                         </div>
                         <div class="cont-logo-letras">
                             <span><b>Scryp-be</b></span>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="linea">
                     </div>
-                    <div class="row perfil">
+                    <div class="row perfil" id="option-perfil">
                         <div class="img-perfil" style="background-image:url('../img/woman-2.jpg')">
                         </div>
                         <span> Ana Andino</span>
@@ -37,7 +62,8 @@
                     <div class="linea">
                     </div>
                     <div class="row btn-proyecto">
-                        <button class="btn btn-primary">Crear Proyecto</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Crear
+                            Proyecto</button>
                     </div>
 
                     <div class="row general">
@@ -47,7 +73,7 @@
                                     <span>GENERAL</span>
                                 </li>
                                 <li class="sidebar-dropdown">
-                                    <a href="#">
+                                    <a href="#" id="option-Proyec">
                                         <i class="fas fa-folder fa-2x"></i>
                                         <span>Mis proyectos</span>
                                         <!-- <span class="badge badge-pill badge-danger">New</span> -->
@@ -127,162 +153,17 @@
             </div>
             <!-- -->
             <div class="col-lg-10  col-md-10  col-sm-12 col-xs-12 content-dash">
-                <header style="background-color:#5c6ac4">
+                <!-- <header style="background-color:#5c6ac4">
 
                     <nav class="navbar navbar-expand-lg navbar-light  border-bottom">
                         <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
                     </nav>
 
-                </header>
+                </header> -->
 
                 <div class="main">
                     <div class="main-content">
-                        <div class="container-fluid">
-                            <!-- Begin Profile -->
-                            <div class="panel-profile" style="display:none">
-                                <div class="row">
-                                    <div class="profile-left col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                                        <!-- PROFILE HEADER -->
-                                        <div class="profile-header">
-                                            <div class="profile-main">
-                                                <div class="div-img" style="background-image:url('../img/woman-2.jpg')">
-
-                                                </div>
-                                                <h3 class="name">Samuel Gold</h3>
-                                                <span class="online-status status-available">Available</span>
-                                            </div>
-                                            <div class="profile-stat">
-                                                <div class="row">
-                                                    <div class="col-md-4 stat-item">
-                                                        45 <span>Projects</span>
-                                                    </div>
-                                                    <div class="col-md-4 stat-item">
-                                                        15 <span>Awards</span>
-                                                    </div>
-                                                    <div class="col-md-4 stat-item">
-                                                        2174 <span>Points</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- END PROFILE HEADER -->
-                                    </div>
-                                    <div class="profile-Right col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                                        <div class=" row formulario">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                <div class="contenedor-form container-fluid">
-                                                    <div class="form row">
-
-                                                        <input type="text" id="codigoPerfil" style="display:none">
-                                                        <input type="text" placeholder="Nombre Usuario" class="form-control frm"
-                                                            id="txtCaratula">
-                                                        <input type="text" placeholder="Nick Name" class="form-control frm"
-                                                            id="txtTitulo">
-                                                        <input type="text" placeholder="Correo Electronico" class="form-control frm"
-                                                            id="txtResumen">
-                                                        <input type="text" placeholder="Contraseña" class="form-control frm"
-                                                            id="txtFecha">
-                                                        <input type="text" placeholder="Edad" class="form-control frm"
-                                                            id="txtCalificacion">
-                                                        <div class="col-md-10 col-sm-10 col-xs-10 divSelectH ">
-                                                            <select name="" id="sltCategoria" class="form-control canal">
-                                                                <option selected="true" disabled="disabled">País</option>
-
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-2 col-sm-2 col-xs-2 divSelect" style="padding-top: 0px; padding-right:10px">
-                                                            <button type="button" class="form-control" onclick="">+</button>
-                                                        </div>
-
-
-                                                        <select name="" id="sltOriginal" class="form-control canal selectT">
-                                                            <option selected="true" disabled="disabled">Género</option>
-                                                            <option value="si"> Si</option>
-                                                            <option value="no"> No</option>
-                                                        </select>
-
-
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnGuardar">
-                                                            <button type="button" id="btnGuardar" class="btn btn-danger"
-                                                                onclick="" style="float:left">Guardar</button>
-
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnActualizar">
-                                                            <button type="button" id="btnActualizar" class="btn btn-primary "
-                                                                onclick="">Actualizar</button>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <!-- Begin my proyects -->
-
-                            <div class="panel-my-proyects" style="display:block">
-                                <div class="container-fluid">
-                                    <div class="row fila">
-                                        <!-- 1 -->
-                                        <div class="contenedor-carpeta col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                                            <div class="img-carpeta">
-
-                                            </div>
-                                            <div style="text-align: center">
-                                                <span class="nom-carpeta">Carpeta 1</span>
-                                            </div>
-                                        </div>
-
-                                        <!-- 2 -->
-                                        <div class="contenedor-carpeta col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                                            <div class="img-carpeta">
-
-                                            </div>
-                                            <div style="text-align: center">
-                                                <span class="nom-carpeta">Carpeta 2</span>
-                                            </div>
-                                        </div>
-                                        <!-- 3 -->
-                                        <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                                            <div class="img-archivo" style="background-image: url('../img/javascript.png')">
-
-                                            </div>
-                                            <div style="text-align: center">
-                                                <span class="nom-carpeta">Archivo.html</span>
-                                            </div>
-                                        </div>
-
-                                         <!-- 4 -->
-                                         <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                                                <div class="img-archivo" style="background-image: url('../img/html.png')">
-    
-                                                </div>
-                                                <div style="text-align: center">
-                                                    <span class="nom-carpeta">Archivo.html</span>
-                                                </div>
-                                            </div>
-                                             <!-- 5 -->
-                                        <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                                                <div class="img-archivo" style="background-image: url('../img/css.png')">
-    
-                                                </div>
-                                                <div style="text-align: center">
-                                                    <span class="nom-carpeta">Archivo.html</span>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
+                        <div class="container-fluid main-content-div">
 
 
                         </div>
@@ -296,9 +177,85 @@
 
 
 
-    <script src="../js/jquery-3.2.1.min.js"></script>
+
+
+    <!-- ----------------------------------------------------------------------------------- -->
+    <div class="modal fade" id="myModal" role="dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #000639; color: white">
+                    <h4 class="modal-title">Crear Proyecto</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form container-fluid">
+
+                        <form class="frm-crear-proyecto">
+                            <div class="row">
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 div-txtProyecto">
+                                    <input type="text" id="txtNomProyec" class="form-control"
+                                        placeholder="Nombre del proyecto">
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 colxs-6 div-btnCompartir">
+                                    <button type="button" class="form-control" style="width: 60px; "
+                                        onclick="mostrarDivCom()"><i class="fas fa-share-alt-square"></i></button>
+                                </div>
+                            </div>
+
+                            <textarea class="form-control" name="" id="" cols="30" rows="3"
+                                placeholder="Descripción"></textarea>
+                            <hr>
+                            <div style="margin-bottom: 10px;">
+                                <input class="form-control rbt" type="radio" name="rbt-estado" id="rbt-privado">
+                                <i class="fas fa-lock fa-2x"></i><span> Privado</span>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <input class="form-control rbt" type="radio" name="rbt-estado" id="rbt-publico">
+                                <i class="fab fa-creative-commons-share fa-2x"></i> <span>Público</span>
+                            </div>
+                            <hr>
+
+                            <div class="div-compartir row" hidden= "true">
+                                Colaboradores
+                                <div class="col-lg-10 col-sm-10 div-compartir-text">
+                                   
+                                    <select name="" id="lista-colaboradores" class="form-control">
+                                            <option selected="true" disabled="disabled">Seleccione colaoradores</option>
+                                            <option value="Raqul Andino"> Raul Andino</option>
+                                            <option value="155"> Olvyn Raul Andino</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-2 col-sm-12 div-compartir-btn">
+                                    <button type="button" class="btn-primary form-control"
+                                        onclick="agregarColaborador()" style="width: 50%"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <div style="width:100%">
+                                    <ul class="" id="listaCompartido" style="padding:10px">
+                                        
+                                    </ul>
+                                </div>
+                               
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="background-color: #5c6ac4; color: white"
+                        onclick="prueba()"> Crear </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/controladorDas.js"></script>
+
 </body>
 
 </html>

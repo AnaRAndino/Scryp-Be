@@ -1,45 +1,68 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Netflix</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/costum.css" />
-   
+    <link rel="stylesheet" type="text/css" media="screen" href="css/costum1.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
+
 <body>
     <div class="covertura" style="height: 100%;">
-        <header class="divLogo">
-            <img src="img/logo.png" style="height:50px; width:97x;">
-        </header>
+        <div class="divLogo">
+
+        </div>
         <div class="contendorForm">
             <div>
-                <h1 class="letInici" style="color:white; font-weight: 550">Inicia sesión</h1>
+                <h1 class="letInici" style="color:#00001f; font-weight: 550">Inicia sesión</h1>
             </div>
-           <form class="form-login">
-                <input class="form-control email " type="text" placeholder="Email o número de teléfono">
-                <input class="form-control" type="password" placeholder="Contraseña">
-                <input type="button" class="btn btn-danger" value="Iniciar sesión" id="iniciar-sesion" onlick="loguear()">
+            <form class="form-login">
+
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-md-10 col-sm-10 col-xs-10 cajasTexto">
+                            <input class="form-control email " id="email" type="text" placeholder="Correo Eléctronico">
+                            <div id="text-error-email" class="mensaje-error">
+                                   * Ingrese correo
+                            </div>
+                            <input class="form-control pass" id="pass" type="password" placeholder="Contraseña">
+                            <div id="text-error-pass" class="mensaje-error">
+                                   * Ingrese contraseña
+                            </div>
+                            <input type="button" class="btn btn-danger" value="Iniciar sesión" id="iniciar-sesion">
+
+                        </div>
+                        <div class="col-md-1 col-sm-1 col-xs-1 " id="iconError">
+
+                        </div>
+
+                    </div>
+                </div>
                 <div class="container" style="padding-left:0px; padding-right:0px; margin-top: 10px">
                     <div class="row ">
-                        <div class="col-md-6 col-sm-6 col-lg-6" > 
+                        <div class="col-md-6 col-sm-6 col-lg-6">
                             <input type="checkbox" class="form-check-input" id="form-check-input">
-                            <label class="form-check-label" for="form-check-input">Recuérdame</label>  
+                            <label class="form-check-label" for="form-check-input">Recuérdame</label>
                         </div>
                         <div class="col-md-6 col-sm-6 col-lg-6">
                             <a href="#" class="ayuda">¿Necesitas ayuda?</a>
                         </div>
                     </div>
                 </div>
-           </form>
+            </form>
         </div>
 
     </div>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/controlador.js"></script>
-    
+
 </body>
+
 </html>

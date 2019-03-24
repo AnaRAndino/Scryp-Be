@@ -39,6 +39,31 @@ $(document).ready(function(){
         function mostrarIconoError(campo){
             $('#iconError').append(`<i class="fa fa-exclamation iconoError-vacio" aria-hidden="true" id="error-${campo}"></i>`);           
         }
+
+            
+        var parametros= {
+            correo: $("#email").val(),
+            contrasena: $("#pass").val()
+        }
+
+        $.ajax({
+            url:"/iniciar-sesion",
+            method:"POST",
+            data: parametros,
+            dataType:"json", //json
+            success: function(respuesta){ //200 OK
+
+                if (respuesta === []){
+                    alert("No se encontro usuario");
+                }else{
+                    window.location.href = "../dashboard/dashboard.html";
+                }
+                console.log(respuesta);
+            },
+            error:function(error){
+                console.error(error);
+            }
+        });
     };
     
     $('.email').focusin(function(){    

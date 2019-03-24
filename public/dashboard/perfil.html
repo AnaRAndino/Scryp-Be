@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+</head>
+
+<body>
+    <!-- Begin Profile -->
+    <div class="panel-profile">
+        <div class="row">
+            <div class="profile-left col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <!-- PROFILE HEADER -->
+                <div class="profile-header">
+                    <div class="profile-main">
+                        <div class="div-img" style="background-image:url('../img/woman-2.jpg')">
+
+                        </div>
+                        <h3 class="name">AniRachell58</h3>
+                        <span class="online-status status-available">Disppnible</span>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="row">
+                            <div class="col-md-4 stat-item">
+                                45 <span>Proyectos</span>
+                            </div>
+                            <div class="col-md-4 stat-item">
+                                15 <span>Colaboradores</span>
+                            </div>
+                            <div class="col-md-4 stat-item">
+                                2174 <span>Snippets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- END PROFILE HEADER -->
+                <!-- PROFILE DETAIL -->
+                <div class="profile-detail">
+                    <div class="profile-info">
+                        <h4 class="heading">Información Básica</h4>
+                        <ul class="list-unstyled list-justify">
+                            <li><span>Ana Raquel Andino</span></li>
+                            <li><span>samuel@mydomain.com</span></li>
+                            <li><span><a style="color: blueviolet" href="https://www.themeineed.com">www.themeineed.com</a></span></li>
+                            <li><span>23 años</span></li>
+                            <li><span>Honduras</span></li>
+                        </ul>
+                    </div>
+                    <div class="profile-info">
+                        <h4 class="heading">Biografía</h4>
+                        <p>Programador Junior, apasionada y con muchos deseos de aprender</p>
+                    </div>
+                    <div class="text-center btn-editar-perfil"><a href="#" class="btn btn-primary">Editar Profile</a></div>
+                </div>
+                <!-- END PROFILE HEADER -->
+            </div>
+            <div class="profile-Right col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class=" row formulario">
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                        <div class="contenedor-form container-fluid">
+
+                            <div class="form row">
+                                <div class="span-editar-perfil">
+                                    <span> Editar Perfil</span>
+
+                                </div>
+
+                                <input type="text" id="codigoPerfil" style="display:none">
+                                <input type="text" placeholder="Nombre Usuario" class="form-control frm" id="txtCaratula">
+                                <input type="text" placeholder="Nick Name" class="form-control frm" id="txtTitulo">
+                                <input type="text" placeholder="Correo Electronico" class="form-control frm" id="txtResumen">
+
+                                <input type="text" placeholder="Edad" class="form-control frm" id="txtCalificacion">
+                                <div class="col-md-10 col-sm-10 col-xs-10 divSelectH ">
+                                    <select name="" id="sltCategoria" class="form-control canal">
+                                        <option selected="true" disabled="disabled">País</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2 divSelect" style="padding-top: 0px; padding-right:10px">
+                                    <button type="button" class="form-control" onclick="">+</button>
+                                </div>
+
+
+                                <select name="" id="sltOriginal" class="form-control canal selectT">
+                                    <option selected="true" disabled="disabled">Género</option>
+                                    <option value="si"> Si</option>
+                                    <option value="no"> No</option>
+                                </select>
+                                <div class="span-editar-perfil">
+                                    <span>Contraseña</span>
+                                </div>
+                                <input type="text" placeholder="Contraseña" class="form-control frm" id="txt-password">
+                                <input type="text" placeholder="Confirmar contraseña" class="form-control frm" id="txt-con-password">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnGuardar">
+                                    <button type="button" id="btnGuardar" class="btn btn-danger" onclick="" style="float:left">Guardar</button>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnActualizar">
+                                    <button type="button" id="btnActualizar" class="btn btn-primary " onclick="">Actualizar</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

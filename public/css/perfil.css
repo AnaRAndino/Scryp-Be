@@ -1,0 +1,128 @@
+
+.panel-profile {
+    position: relative;
+}
+
+.profile-left {
+    padding-left: 0;
+    height: 100%;
+    padding-right: 0;
+    background-color: #e6e6e6;
+}
+
+.profile-header {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.profile-header .profile-main {
+    position: relative;
+    padding: 20px;
+    background-image: url(../img/side-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.div-img{
+    height: 100px;
+    width: 100px;
+    background: no-repeat center;
+    background-size: cover;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.profile-header .profile-stat {
+    position: relative;
+    background-color: #00AAFF;
+}
+
+.contenedor-form{
+    margin-right: auto;
+    margin-left: auto;
+    height: auto;
+    padding: 30px;
+    /* border: solid 1px rgba(194, 194, 194, 0.315); */
+    border-radius: 5px;
+}
+
+.contenedor-form input[type="text"] {
+    margin: 0px 5px 10px 5px;
+    width: 100%;
+    background-color: #eeeeee;
+    border: none;
+    /* width: 75%; */
+}
+
+#canal{
+    margin: 5px;
+    width: 96%;
+}
+
+.divSelect{
+   padding-right: 0px;
+   padding-left: 0px;
+}
+
+
+
+.btnGuardar{
+    margin-top: 15px;
+    padding: 0;
+}
+
+.btnActualizar{
+    padding: 0px;
+    padding-left: 50px;
+    margin-top: 15px;
+    padding-right: 0px;
+}
+
+.divSelectH{
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-left: 4px;
+    margin-bottom: 10px;
+}
+
+.span-editar-perfil{
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-top: 15px;
+    color: #4d4d4d;
+    font-weight: bold;
+
+}
+
+/* dETALLE DE PERFIL */
+profile-detail {
+    padding-bottom: 30px; 
+}
+  
+.profile-info {
+    padding: 0 20px;
+    margin: 20px 0; 
+    text-align: center;
+}
+
+.profile-info .heading {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    background-color: #bebebe;
+    border-radius: 3px;
+    height: 40px;
+    color: #4d4d4d;
+}
+
+.profile-info ul > li {
+    margin-bottom: 8px; 
+}
+
+.btn-editar-perfil{
+    margin-bottom: 25px;
+}
+

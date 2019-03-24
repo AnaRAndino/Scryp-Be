@@ -1,0 +1,33 @@
+Al cerrar modal crear proyecto que se limpien las variables
+Validaciones editar perfil
+Validaciones Crear Proyecto
+Modificar Navar
+Definir fuente del logo
+Modificar Landing page
+
+Incluir/investigar
+  * Como poner color al texto seg'un el lenguaje
+  * como hacer scrolling bootstrap
+Al hacer doble click abrir un menu pequenio desplegable o mostrar un modal
+
+Plus
+  - Notificaciones sobre modificaci'on de archivos
+
+
+Por hacer>
+    -compartir con
+	* archivos 
+	* carpetas
+    - Detalles de plan
+    - Contratar plan
+    - Hacer panel de editor de proyectos
+    - Agregarle los botones 
+	Descargar
+	Guardar
+	Ejecutar (Ver resultado)
+     - Formulario, craci'on de snippes de codigo
+	-hacer un modal donde visualice los snippes
+     Por proyecto
+	- Que se destaque
+	- Que se comparta
+	- Que se elimine 
