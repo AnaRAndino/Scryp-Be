@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/estilos-project.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar  navbar-light fixed-top" style="margin-bottom: 50px">
+        <div class="container-fluid">
+            <div class="row logo" style="width:100%">
+                <div class="div-logo col-lg-2 col-md-2">
+                    <div class="trans-logo">
+                        <div class="cont-logo">
+                            <!-- <img src="../img/code-logo - copia.png" alt=""> -->
+                        </div>
+                        <div class="cont-logo-letras">
+                            <span><b>Scryp-be</b></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <button type="button" onclick="correr()">Correr</button>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="container-fluid contenedor">
+        <div class="row cuadrantePrimero">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 cont-cuadro">
+                <div class="head-cont-cuadro">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <span>
+                        <h4>HTML</h4>
+                    </span>
+                </div>
+
+                <div class="cont-cuadro-space">
+                    <div id="editor" class="editores">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 cont-cuadro ">
+                <div class="head-cont-cuadro">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary " type="button" id="dropdownMenuButton1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <span>
+                        <h4>CSS</h4>
+                    </span>
+                </div>
+                <div class="cont-cuadro-space">
+                    <div id="editor1" class="editores">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 cont-cuadro ">
+                <div class="head-cont-cuadro">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary " type="button" id="dropdownMenuButton3" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <span>
+                        <h4>JS</h4>
+                    </span>
+                </div>
+                <div class="cont-cuadro-space">
+                    <div id="editor2" class="editores">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 cont-cuadro vista-previa">
+                <div style="height: 100%" id="ct1">
+                    <div class="head-cont-cuadro">
+
+                    </div>
+                    <div  id="testj" class="cont-cuadro-space" style="background-color: white">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/controlador-projectEditor.js"></script>
+    <script>
+  
+       
+
+        $("#ct1").resizable(
+            {
+                handles: 'n',
+                maxHeight: 450
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

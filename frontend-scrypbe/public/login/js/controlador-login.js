@@ -1,0 +1,112 @@
+$(document).ready(function () {
+
+    $("#iniciar-sesion").click(function () {
+        loguear();
+    });
+
+    $("#email").keyup(function () {
+        validarCorreo();
+    })
+
+    $('.email').focusin(function () {
+        console.log('dentro email');
+        $(this).removeClass("campo-error");
+        $('.iconoError-vacio').hide();
+        $('.mensaje-error').hide()
+
+    })
+    $('.pass').focusin(function () {
+        console.log('dentro pass');
+        $(this).removeClass("campo-error");
+        $('.iconoError-vacio').hide();
+    })
+
+});
+// Validaci'on de campos
+function loguear() {
+    console.log("dentro de funcion");
+    var campos = [
+        { campo: 'email', valido: false },
+        { campo: 'pass', valido: false }];
+    $('#iconError').html("");
+
+    var contValidos = campos.length
+
+    for (var i = 0; i < campos.length; i++) {
+        console.log(contValidos);
+        var campo = campos[i].campo;
+        campos[i].valido = validarCampoVacio(campo);
+
+        if (!campos[i].valido) {
+            $(`#${campo}`).addClass('campo-error');
+            mostrarIconoError(campo);
+            $(`#text-error-${campo}`).show();
+        }else {
+            contValidos -= 1;
+            mostrarIconoError(campo);
+            $(`#text-error-${campo}`).hide();
+            $(`#error-${campo}`).css('visibility', 'hidden');
+            $(`#error-${campo}`).css('margin-bottom', '0px');
+        }
+    };
+
+    if (contValidos == 0 )
+        iniciar();
+}
+
+function validarCampoVacio(campo) {
+    if ($(`#${campo}`).val() == '') {
+        console.log("Esta vacio el campo:" + campo);
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function mostrarIconoError(campo) {
+    $('#iconError').append(`<i class="fa fa-exclamation iconoError-vacio" aria-hidden="true" id="error-${campo}"></i>`);
+}
+
+
+
+function validarCorreo() {
+    if ($('#email').val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+        $('#email').addClass('campo-error-email');
+        return false;
+    } else {
+        $('#email').removeClass('campo-error-email');
+        return true;
+    }
+}
+
+function iniciar(){
+    alert("bien");
+
+    
+    var parametros= {
+        email: $("#email").val(),
+        contrasenia: $("#pass").val()
+    }
+
+    $.ajax({
+        url:"http://localhost:8003/inciar-sesion",
+        method:"POST",
+        data: parametros,
+        dataType:"json", //json
+        success: function(respuesta){ //200 OK
+
+            if (respuesta.estado === 1){
+                alert("No se encontro usuario");
+            }else{
+                window.location.href = "../dashboard";
+            }
+            console.log(respuesta);
+        },
+        error:function(error){
+            console.error(error);
+        }
+    });
+}
+
+
+

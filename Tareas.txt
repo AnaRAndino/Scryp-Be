@@ -6,13 +6,12 @@ Definir fuente del logo
 Modificar Landing page
 
 Incluir/investigar
-  * Como poner color al texto seg'un el lenguaje
+  * Como poner color al texto segun el lenguaje
   * como hacer scrolling bootstrap
 Al hacer doble click abrir un menu pequenio desplegable o mostrar un modal
 
 Plus
-  - Notificaciones sobre modificaci'on de archivos
-
+  - Notificaciones sobre modificacion de archivos
 
 Por hacer>
     -compartir con
@@ -25,8 +24,8 @@ Por hacer>
 	Descargar
 	Guardar
 	Ejecutar (Ver resultado)
-     - Formulario, craci'on de snippes de codigo
-	-hacer un modal donde visualice los snippes
+     - Formulario, cracion de snippets de codigo
+	-hacer un modal donde visualice los snippets
      Por proyecto
 	- Que se destaque
 	- Que se comparta
