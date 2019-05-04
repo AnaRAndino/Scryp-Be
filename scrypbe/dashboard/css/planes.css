@@ -1,0 +1,9 @@
+.card-image{
+    background: url("/img/architecture.jpg") no-repeat center center;
+}
+
+.btn-outline-white{
+    border: 2px solid #fff;
+    color: #fff !important;
+    background-color: transparent;
+}

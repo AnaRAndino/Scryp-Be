@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scryp-Be</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="../css/mdb.min.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="css/customDasboard.css">
+
+</head>
+
+<body style="overflow-y:hidden">
+
+
+    <nav class="navbar  navbar-light fixed-top">
+        <div class="container-fluid">
+            <div class="row logo" style="width:100%">
+                <div class="div-logo col-lg-2 col-md-2">
+                    <div class="trans-logo">
+                        <div class="cont-logo">
+                            <!-- <img src="../img/code-logo - copia.png" alt=""> -->
+                        </div>
+                        <!-- <div class="cont-logo-letras">
+                            <span><b>Scryp-be</b></span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-2">
+                    <!-- <input type="search" class="form-control" style="width:100%; margin-top:10px" /> -->
+
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-10 botones">
+                    <div style="float:right; margin-top: 10px">
+                        <button class="btn btn-info" id="menuNuevoSnipet"
+                            style="background-color: #824abd !important"><i class="fas fa-folder-plus"></i>
+                            Snippet</button>
+                        <button class="btn btn-info" id="nuevoCarpeta"><i class="fas fa-folder-plus"></i>
+                            Carpeta</button>
+                        <button class="btn btn-info" id="nuevoArchivo"><i class="fas fa-file"></i> Archivo</button>
+                        <button class="btn btn-info" id="subirArchivo"><i class="fas fa-file-upload"></i>
+                            Archivo</button>
+                        <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-sign-out-alt"></i></button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row sidebar">
+            <!-- <div class="side-colum" id="wrapper"> -->
+            <div class="col-lg-2 col-md-2  side-colum fixed-left" id="wrapper">
+                <div class="side-colum-trans container-fluid" id="sidebar-wrapper">
+                    <!-- <div class="row logo">
+                        <div class="cont-logo">
+                            <img src="../img/code-logo - copia.png" alt="">
+                        </div>
+                        <div class="cont-logo-letras">
+                            <span><b>Scryp-be</b></span>
+                        </div>
+                    </div> -->
+                    <div class="linea">
+                    </div>
+                    <div class="row perfil" id="option-perfil">
+                        <div class="img-perfil" style="background-image:url('../img/woman-2.jpg')">
+                        </div>
+                        <div id="nombreP" style="padding-top: 15px">
+
+                        </div>
+                    </div>
+                    <div class="linea">
+                    </div>
+                    <div class="row btn-proyecto">
+                        <button class="btn btn-primary" data-toggle="modal" id="nuevoProyecto">Crear
+                            Proyecto
+                        </button>
+                    </div>
+
+                    <div class="row general">
+                        <div class="sidebar-menu">
+                            <ul class="lista-sidebar">
+                                <li class="header-menu">
+                                    <span>GENERAL</span>
+                                </li>
+                                <li class="sidebar-dropdown">
+                                    <a href="#" id="option-Proyec">
+                                        <i class="fas fa-folder fa-2x"></i>
+                                        <span>Mis proyectos</span>
+                                        <!-- <span class="badge badge-pill badge-danger">New</span> -->
+                                    </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a>
+                                                    <!-- <span class="badge badge-pill badge-success">Pro</span> -->
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Proyectos Recientes</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="sidebar-dropdown">
+                                    <a href="#" id="option-colaboracion">
+                                        <i class="fas fa-user-friends"></i>
+
+                                        <span>Colaboración</span>
+                                        <!-- <span class="badge badge-pill badge-primary">3</span> -->
+                                    </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Recientes Colaboración
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="sidebar-dropdown">
+                                    <a href="#" id="option-Destacados">
+                                        <i class="fas fa-star"></i>
+                                        <span>Destacados</span>
+                                    </a>
+                                    <div class="sidebar-submenu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">General</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Panels</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="header-menu">
+                                    <span>Extra</span>
+                                </li>
+                                <li>
+                                    <a href="#" id="option-snippet">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <span>Snippets</span>
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a href="#" id="option-plan">
+                                        <i class="fas fa-money-check-alt"></i>
+                                        <span>Contratar Plan</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-book"></i>
+                                        <span>Documentation</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="col-lg-10  col-md-10  col-sm-12 col-xs-12 content-dash">
+
+                <!-- <header style="background-color:#5c6ac4">
+
+                    <nav class="navbar navbar-expand-lg navbar-light  border-bottom">
+                        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+                    </nav>
+
+                </header> -->
+
+                <div class="main">
+                    <div class="main-content">
+                        <div style="padding-left:5px; padding-top: 2px">
+
+                            <a href="#" style="color:#000639">Mis proyectos ></a>
+                            <hr>
+                        </div>
+
+                        <div class="container-fluid main-content-div">
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="modalNuevoCarpeta" role="dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="color: white">
+                    <h4 class="modal-title-new">Crear Carpeta</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form container-fluid">
+
+
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 div-txtProyecto">
+                                <input type="text" id="txtNombreNuevoCarpeta" class="form-control" placeholder="Nombre"
+                                    name="nombreProyecto">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="background-color: #5c6ac4; color: white"
+                        onclick="crearCarpeta()"> Crear </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="modalNuevoArchivo" role="dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="color: white">
+                    <h4 class="modal-title-new"></h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form container-fluid">
+
+                        <form ref='uploadForm' id='uploadForm' action='http://localhost:8002/upload' method='post'
+                            encType="multipart/form-data">
+                            <input type="file" name="sampleFile" />
+                            <input type='submit' value='Upload!' />
+                        </form>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="background-color: #5c6ac4; color: white"> Crear
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ----------------------------------------------------------------------------------- -->
+    <div class="modal fade" id="modalNuevoProyecto" role="dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style=" color: white">
+                    <h4 class="modal-title">Crear Proyecto</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form container-fluid">
+
+                        <form class="frm-crear-proyecto" id="frmCrearProyecto">
+                            <div class="row">
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6 div-txtProyecto">
+                                    <input type="text" id="txtNomProyec" class="form-control"
+                                        placeholder="Nombre del proyecto" name="nombreProyecto">
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 colxs-6 div-btnCompartir">
+                                    <button type="button" class="form-control" style="width: 60px; "
+                                        onclick="mostrarDivCom()"><i class="fas fa-share-alt-square"></i></button>
+                                </div>
+                            </div>
+
+                            <textarea class="form-control" name="" id="" cols="30" rows="3"
+                                placeholder="Descripción"></textarea>
+                            <hr>
+                            <!-- <div style="margin-bottom: 10px;">
+                                <input class="form-control rbt" type="radio" name="rbt-estado" id="rbt-privado">
+                                <i class="fas fa-lock fa-2x"></i><span> Privado</span>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <input class="form-control rbt" type="radio" name="rbt-estado" id="rbt-publico">
+                                <i class="fab fa-creative-commons-share fa-2x"></i> <span>Público</span>
+                            </div>
+                            <hr> -->
+
+                            <div id="div-compartir" class="div-compartir row">
+                                Colaboradores
+                                <div class="col-lg-10 col-sm-10 div-compartir-text">
+                                    <input type="text" placeholder="Usuario/correo" id="txt-colaboradores"
+                                        class="form-control">
+                                </div>
+                                <div class="col-lg-2 col-sm-12 div-compartir-btn">
+                                    <button type="button" class="btn-primary form-control"
+                                        onclick="agregarColaborador()" style="width: 50%"><i
+                                            class="fas fa-plus"></i></button>
+                                </div>
+                                <div style="width:100%">
+                                    <ul class="" id="listaCompartido" style="padding:10px">
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="background-color: #5c6ac4; color: white"
+                        onclick="crearProyecto()"> Crear </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- ---------------------------------Snippet------------------------- -->
+    <div class="modal fade" id="modalSnipptNew" role="dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style=" color: white">
+                    <h4 class="modal-title-new">Agrega un nuevo snippet</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form container-fluid">
+                        <div class="row">
+                            <div class="input-snipt">
+                                <input type="text" class="form-control" id="nombreSnippet"
+                                    placeholder="Ingresa un titulo">
+                            </div>
+                            <div class="input-snipt">
+                                <input type="text" class="form-control" id="extension" id="" placeholder="extensión">
+                            </div>
+                        </div>
+                        <div>
+                            <span style="color:rgb(61, 61, 61)"><b>Código:</b></span>
+                        </div>
+                        <div id="editorNew" class="editoresNew row">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="background-color: #5c6ac4; color: white"
+                        id="btn-crear-snippet" onclick="crearSnippet()"> Crear
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!------------------------------ modal mostrar codigo snppet ------------->
+
+
+    <div class="modal fade" id="modalSnippt" role="dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="color: white">
+                    <h4 class="modal-title-new-view-source"></h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form container-fluid">
+                        <div id="editor" class="editores">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="background-color: #901bbe; color: white"
+                        id="btn-descargar-snippet"> Descargar
+                    </button>
+                    <button type="button" class="btn btn-default" style="background-color: #5c6ac4; color: white"
+                        id="btn-guardar-snippet"> Guardar
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript"
+        charset="utf-8"></script>
+    <script src="js/controlador-dasboard.js"></script>
+
+
+</body>
+
+</html>

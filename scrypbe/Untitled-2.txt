@@ -1,0 +1,48 @@
+        nombre: String,
+        nombreUsuario : String,
+        email : String,
+        contrasenia:String,
+        edad: Number,
+        genero: String,
+
+
+        almacenamiento : {               
+                Tipoplan{
+                    Suscripcion,
+                    Plan,
+                    Costo,
+                    Espacio,
+                    fechaInicio,
+                    fechaFin
+                },
+                EspacioUtilizado,
+                EspacioDisponible
+        },        
+        facturas: [
+            {idFactura,fechaEmision, FechaPago,totalPago, TipoPago}
+        ],
+        proyectos: [
+            {
+                idProyecto,
+                nombreProyecto,
+                fechaCracion,
+                descripcion,
+                estadoCompartido,
+                estadoDestacado,
+                estadoColaboracion,
+                carpetas [
+                    {
+                        idCarpeta,
+                        nombreCarpeta,
+                        tipoCarpeta,
+                        archivos[
+                            {idArchivo,Nombre, contenido, tamanio, extension,estadoDestacado, estadoCompartido,estadoColaboracion, fechaCreacion,idCarpetaPadre,estadoAcceso}
+                        ]
+                        idCarpetaPadre
+                    }
+                ]
+
+            },
+            
+        ],
+        snippets: mongoose.Schema.Types.Mixed,

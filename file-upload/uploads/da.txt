@@ -1,0 +1,95 @@
+________________________________________________________________________________________________
+Transacción	 |      Acción		|	Resultado
+________________________________________________________________________________________________
+Servicios: 	       Reversa 			Exitoso
+Caja EMpresarial:      Reversa 			76: 1017 : Error en servicio contable. revisar 
+						datos enviados y el detalle tecnico de respuesta. 
+
+Deposito:	       Reversa			Exitoso
+Pago TC:	       Pago 			Exitoso
+Retiros		       Sin pruebas		----	
+Transferencias	       Sin pruebas		----
+
+
+_________________________________________________________________________________________________
+					Datos de pruebas
+_________________________________________________________________________________________________
+
+http://200.31.162.10:81/WCF_HOST.svc?wsdl // sin amachi
+http://192.168.109.25:8000/WCF_HOST.svc //atlanti
+http://25.67.223.139:81/WCF_HOST.svc?wsdl // amachi
+
+licencia: 1B2BDD5F66AB059E77D59C0E81551F46
+
+D8296E6CAFABB5AFD95C4911714C76C0
+
+Deposito	| 10111001870
+
+
+Caja Empresarial(Instituciones educativas, abundant life, teguciagalpa, pago)
+
+11223344
+113322
+001122
+998877
+667755
+334455
+
+Pago Servicios | Hondutel 22467690
+
+Remesas
+	9955
+	9944
+
+Pago TC: 5280350908026007
+
+                                                                         001001002          00000000000000000000000546001122          0000000179                2Codigo Alumno       Mes                 Item 3              Item 4              Item 5              001122              MARZO                                                                           0000000000000 0000000000000 0000000000000 0000000000000 0000000000000 0000000000000                                                   884851                    0404170C
+
+
+id_empr: 0000000002
+id_esta: 0000000002
+id_term: 00000001
+
+
+
+
+000101 dep
+000102 reti
+020202 remesa
+040405 servic
+040417 cajaem
+
+
+
+Retiros			100
+Caja			 30
+Depositos		340
+Pago Tc			150
+
+
+
+
+
+
+
+Lector Banda (MSR213U)
+
+
+
+
+
+
+
+
+
+0801123412345
+
+
+
+Solo tus remesas te premian al instante
+
+
+
+
+
+

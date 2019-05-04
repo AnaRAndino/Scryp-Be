@@ -1,0 +1,88 @@
+/* ------------------------ Panel Proyects-------------- */
+
+.panel-my-proyects{
+    position: relative;
+    padding: 5px;
+    
+}
+
+.fila{
+    height: inherit;
+}
+
+.contenedor-carpeta, .contenedor-archivo{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.contenedor-carpeta:hover{
+    background-color: #5c6ac4ad;
+}
+.contenedor-archivo:hover{
+    background-color: #5c6ac4ad;
+}
+
+.img-carpeta{
+    background-image: url('../../img/folder-icon.png');
+    height: 125px;
+}
+
+
+.img-proyecto{
+    background-image: url('../../img/folder-icon2.png');
+    height: 125px;
+    height: 100px;
+    width: 100px;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.img-archivo{
+    height: 117px;
+    width: 90px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.img-carpeta{
+    height: 100px;
+    width: 100px;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.nom-carpeta{
+    margin: auto;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color:#5c6ac4;
+}
+
+#fondoContenedor{
+    background-color: #000639c0; 
+    height: 100%;
+    width: 100%;
+}
+
+#fondoImagen{
+    height: 125px;
+    border: 2px solid;
+    border-radius: 4px;
+    background-image: url("../../img/2.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.nombre{
+    padding-top: 20px;
+    text-align: center;
+    color: #5c6ac4;
+}
+
+#fondoContenedor:hover{
+    background-color: #000639;
+}

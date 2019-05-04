@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/perfil.css">
+    
+</head>
+
+<body>
+    <!-- Begin Profile -->
+    <div class="panel-profile">
+        <div class="row">
+            <div class="profile-left col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <!-- PROFILE HEADER -->
+                <div class="profile-header">
+                    <div class="profile-main">
+                        <div class="div-img" style="background-image:url('../img/woman-2.jpg')">
+
+                        </div>
+                        <h3 class="name" id="namePerfil"></h3>
+                        <span class="online-status status-available">Disponible</span>
+                    </div>
+                    <div class="profile-stat">
+                        <div class="row">
+                            <div class="col-md-4 stat-item">
+                                45 <span>Proyectos</span>
+                            </div>
+                            <div class="col-md-4 stat-item">
+                                15 <span>Colaboradores</span>
+                            </div>
+                            <div class="col-md-4 stat-item">
+                                2174 <span>Snippets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- END PROFILE HEADER -->
+                <!-- PROFILE DETAIL -->
+                <div class="profile-detail">
+                    <div class="profile-info">
+                        <h4 class="heading">Información Básica</h4>
+                        <ul id="profile-info" class="list-unstyled list-justify">
+
+                        </ul>
+                    </div>
+                    <div class="profile-info">
+                        <h4 class="heading">Biografía</h4>
+                        <p>Programador Junior, apasionada y con muchos deseos de aprender</p>
+                    </div>
+                    <div class="text-center btn-editar-perfil"><button type="button" class="btn btn-primary" id="btnEditarPerfil">Editar
+                            Perfil</button></div>
+                    <div class="text-center btn-editar-perfil"><button type="button" class="btn btn-primary" id="btnCambiarContrasenia">Cambiar
+                            Contraseña</button></div>
+                </div>
+                <!-- END PROFILE HEADER -->
+            </div>
+            <div class="profile-Right col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class=" row formulario">
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                        <div class="contenedor-form container-fluid">
+                            <form id="frmperfil">
+                                <div class="form row">
+                                    <div class="span-editar-perfil">
+                                        <span> Editar Perfil</span>
+                                    </div>
+
+                                    <input type="text" id="codigoPerfil" style="display:none">
+
+                                    <label for="nombre"><b> Nombre Completo</b></label>
+                                    <input type="text" placeholder="Nombre Usuario" class="form-control frm" id="nombre"
+                                        name="nombre">
+                                    <div id="text-error-nombre" class="mensaje-error">
+                                        * Ingrese un Nombre
+                                    </div>
+
+                                    <label for="nombreUsuario"><b> Nombre Usuario</b></label>
+                                    <input type="text" placeholder="Nick Name" class="form-control frm" id="nombreUsuario"
+                                        name="nombreUsuario">
+                                    <div id="text-error-nombreUsuario" class="mensaje-error">
+                                        * Ingrese un Nombre Usuario
+                                    </div>
+
+                                    <label for="email"><b> Email</b></label>
+                                    <input type="text" placeholder="Correo Electronico" class="form-control frm" id="email"
+                                        name="email">
+                                    <div id="text-error-email" class="mensaje-error">
+                                        * Ingrese un Email
+                                    </div>
+
+                                    <label for="edad"><b> Edad</b></label>
+                                    <input type="text" placeholder="Edad" class="form-control frm" id="edad" name="edad">
+                                    <div id="text-error-edad" class="mensaje-error">
+                                        * Ingrese una edad
+                                    </div>
+
+                                    <label for="pais"><b>Pais</b></label>
+                                    <input type="text" placeholder="Pais" class="form-control frm" id="pais" name="pais">
+                                    <div id="text-error-pais" class="mensaje-error">
+                                        * Ingrese un pais
+                                    </div>
+
+                                    <label for="genero"><b>Genero</b></label>
+                                    <select name="genero" id="slt-Genero" class="form-control canal sltGenero">
+                                        <option selected="true" disabled="disabled">Género</option>
+                                        <option value="F"> Femenino</option>
+                                        <option value="M"> Masculino</option>
+                                    </select>
+                                    <div id="text-error-genero" class="mensaje-error">
+                                        * Seleccione un Genero
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnActualizar">
+                                        <button type="button" id="btnActualizar" class="btn btn-danger">Actualizar</button>
+                                    </div>
+
+
+                                </div>
+                            </form>
+
+                            <form id="formContrasenia">
+                                <div id="frmCon" style="display:none">
+                                    <div class="span-editar-perfil">
+                                        <span>Contraseña</span>
+                                    </div>
+                                    <input type="text" placeholder="Contraseña" class="form-control frm" id="contrasenia"
+                                        name="contrasenia">
+                                    <div id="text-error-contrasenia" class="mensaje-error">
+                                        * Ingrese una contraseña
+                                    </div>
+
+                                    <input type="text" placeholder="Confirmar contraseña" class="form-control frm" id="confContrasenia"
+                                        name="confContrasenia">
+                                    <div id="text-error-confContrasenia" class="mensaje-error">
+                                        * Ingrese una contraseña de nuevo
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnGuardar">
+                                        <button type="button" id="btnActualizarCont" class="btn btn-danger" onclick=""
+                                            style="float:left">Actualizar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    
+    
+    <script src="../public/js/jquery-3.2.1.min.js"></script>
+    <script src="./js/controlador-perfil.js"></script>
+</body>
+
+</html>
