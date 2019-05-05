@@ -1,7 +1,12 @@
 # scryp-be
 Proyecto Sistemas expertos I 2019
 
-## Project setup
+
+### Compiles and hot-reloads for development
+```
+Situarse en la carpeta Scryp-be y ejecutar los paso a continuación.
+```
+## Configuración
 ```
 npm install
 ```
