@@ -176,7 +176,7 @@ function  cargarSnippets(){
               <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
                   <div class="img-archivo" style="background-image:url('../img/snipt.png'); background-size: contain;" ondblclick="cargarCodigo('${snipt._id}')"></div>
                   <div style="text-align:center">
-                      <span class="nom-carpeta">${snipt.nombre}.${snipt.lenguaje}</span>
+                      <span class="nom-carpeta">${snipt.nombre}.${snipt.extension}</span>
                   </div>
               </div>
                 `;
@@ -213,7 +213,7 @@ function cargarCodigo(codigoSnipt) {
         if (snippet._id == codigoSnipt) {
           $(".modal-title-new-view-source").append(snippet.nombre)
           editorSniptt.setTheme("ace/theme/monokai");
-          editorSniptt.session.setMode("ace/mode/" + snippet.lenguaje);
+          editorSniptt.session.setMode("ace/mode/" + snippet.lenguaje.toLowerCase());
           editorSniptt.setValue(snippet.contenido);
         }
       }

@@ -15,7 +15,7 @@ router.get('/obtener-sesion', function (req, res) {
 
 
 router.post("/inciar-sesion", function (req, res) {
-    usuario.find({ email: req.body.correo, contrasenia: req.body.contrasena })
+    usuario.find({ email: req.body.correo})
         .then(data => {
             if (data.length == 1) {//Significa que si encontro un usuario con las credenciales indicadas
                 //Establecer las variables de sesion  
@@ -27,7 +27,6 @@ router.post("/inciar-sesion", function (req, res) {
                 res.send({ estado: 0, mensaje: "Usuario autenticado con éxito", usuario: data[0] });
 
             } else {
-                console.log("here 2");
                 res.send({ estado: 1, mensaje: "Credenciales inválidas" });
             }
         })
@@ -45,6 +44,7 @@ router.post('/registrar-usuario', function (req, res) {
         .then(data => {
             if (data.length == 0) {
                 var objUsuario = new usuario({
+                    firabaseId: req.body.firebaseId,
                     nombreUsuario: req.body.nombreUsuario, nombre: req.body.nombre,
                     email: req.body.email, contrasenia: req.body.contrasenia,
                     edad: 0, genero: "x",
@@ -225,7 +225,8 @@ router.put("/crearSnippet", function (req, res) {
                     idCarpetaContenedora: req.cookies.idCarpeta,
                     nombre: req.body.titulo,
                     contenido: req.body.contenido,
-                    lenguaje: req.body.extension
+                    lenguaje: req.body.lenguaje,
+                    extension: req.body.extension
                 }
             }
         }

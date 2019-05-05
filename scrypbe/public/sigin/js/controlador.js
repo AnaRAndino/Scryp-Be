@@ -116,13 +116,35 @@ function registrar(){
         nombre: $("#nombre").val(),
         nombreUsuario: $("#nombre-usuario").val(),
         email: $("#email").val(),      
-        contrasenia: $("#pass").val()       
+        contrasenia: $("#pass").val(),
+        firebaseId: ''       
     }
 
     firebase.auth().createUserWithEmailAndPassword(parametros.email, parametros.contrasenia).then(function(result){
         console.log(result);
 
+        parametros.firebaseId = result.user.uid;
         // Agrear NodeJS
+        
+    alert($("form").serialize());
+    $.ajax({
+        url: `/usuarios/registrar-usuario`,
+        method: "POST",
+        data: parametros, //Cadena en formato URLEncoded
+        dataType: 'json',
+        success: function (res) {
+            if(res.estatus == 0){
+                console.log(res);
+                limpiarItems()
+                window.location.href = "../login"
+            }else if(res.estatus == 1)
+                alert(res.mensaje);
+                
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });    
         
         alert('Usuario creado exitosamente');
     }).catch(function(error) {
@@ -134,25 +156,6 @@ function registrar(){
         }
     });
 
-    // alert($("form").serialize());
-    // $.ajax({
-    //     url: `/usuarios/registrar-usuario`,
-    //     method: "POST",
-    //     data: parametros, //Cadena en formato URLEncoded
-    //     dataType: 'json',
-    //     success: function (res) {
-    //         if(res.estatus == 0){
-    //             console.log(res);
-    //             limpiarItems()
-    //             window.location.href = "../login"
-    //         }else if(res.estatus == 1)
-    //             alert(res.mensaje);
-                
-    //     },
-    //     error: function(error){
-    //         console.log(error);
-    //     }
-    // });    
 }
 
 function limpiarItems(){

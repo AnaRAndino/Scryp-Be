@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 
 var esquema = new mongoose.Schema(
     { 
+        firabaseId: String,
         nombreUsuario: String,
         nombre: String,
         email: String,
@@ -36,7 +37,8 @@ var esquema = new mongoose.Schema(
             idCarpetaContenedora: String,
             nombre: String,
             contenido: String,
-            lenguaje: String
+            lenguaje: String,
+            extension: String
         }],
 	
     }

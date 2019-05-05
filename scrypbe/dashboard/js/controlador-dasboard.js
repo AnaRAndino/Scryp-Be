@@ -1,6 +1,37 @@
 var colaboradores = [];
 
 $(document).ready(function () {
+  // Llena el combobox
+  var lenguajes = [{
+    nombre: "HTML",
+    extension: "html"
+  },{
+    nombre: "JavaScript",
+    extension: "js"
+  },{
+    nombre: "CSS",
+    extension: "css"
+  }];
+  // {
+  //   "HTML": "html",
+  //   "JavaScript": "js",
+  //   "CSS": "css",
+  //   "Python": "py",
+  //   "C#": "cs",
+  //   "C": "c",
+  //   "C++": "cpp",
+  //   "Java": "java",
+  //   "PHP": "php",
+  //   "Visual Basic": "vb",
+  //   "TypeScript": "ts"
+  // };
+
+  for (let i = 0; i < lenguajes.length; i++) {
+    $("#lenguajes").append(`
+      <option id="lenguaje-${lenguajes[i].extension}" value="${lenguajes[i].extension}">${lenguajes[i].nombre}</option>
+    `);
+  }
+
   $('.main-content-div').load('./mis-proyectos.html');
   cargarInfoPerfil();
 });
@@ -124,7 +155,7 @@ function crearProyecto() {
 
 function crearSnippet(){
   editorSniptNew = ace.edit("editorNew");
-  var datos = `titulo=${$("#nombreSnippet").val()}&extension=${$("#extension").val()}&contenido=${editorSniptNew.getValue()}`;
+  var datos = `titulo=${$("#nombreSnippet").val()}&lenguaje=${$("#lenguaje-" + $("#lenguajes").val()).text()}&extension=${$("#lenguajes").val()}&contenido=${editorSniptNew.getValue()}`;
   $.ajax({
     url: `/usuarios/crearSnippet`,
     method: "PUT",
@@ -133,6 +164,9 @@ function crearSnippet(){
     success: function (respuesta) {
       console.log(respuesta);
       $("#modalSnipptNew").modal("hide");
+      $(".fila").html("")
+      cargarCarpetas();
+      cargarArchivos();
       cargarSnippets();
     },
     error: function () {
