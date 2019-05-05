@@ -15,56 +15,52 @@
 
 <body>
     <div class="covertura" style="height: 100%;">
-        <div class="divLogo">
+        <div class="divLogo"></div>
 
-        </div>
-        <div class="contendorForm container-fluid">
-            <div class="row" style="width:100%">
-                    <div>
-                            <h1 class="letInici" style="color:#00001f; font-weight: 550">Inicia sesión</h1>
-                        </div>
-                        <form class="form-login">
-            
-                            <div class="container">
-                                <div class="row ">
-                                    <div class="col-md-10 col-sm-10 col-xs-10 cajasTexto">
-                                        <form id="formulario">
-                                            <input class="form-control email " id="email" name="correo" type="text" placeholder="Correo Eléctronico" value="abner@gmail.com">
-                                            <div id="text-error-email" class="mensaje-error">
-                                                * Ingrese correo
-                                            </div>
-                                            <input class="form-control pass" id="pass" name="contrasena" type="password" placeholder="Contraseña">
-                                            <div id="text-error-pass" class="mensaje-error">
-                                                * Ingrese contraseña
-                                            </div>
-                                            <!-- <input type="button" class="btn btn-danger" value="Iniciar sesión" id="iniciar-sesion"> -->
-                                            <button  type="button" class="btn btn-danger" id="iniciar-sesion">Login</button>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-1 col-sm-1 col-xs-1 " id="iconError">
-            
-                                    </div>
-            
-                                </div>
-                            </div>
-                            <div class="container" style="padding-left:0px; padding-right:0px; margin-top: 10px">
-                                <div class="row ">
-                                    <div class="col-md-6 col-sm-6 col-lg-6">
-                                        <input type="checkbox" class="form-check-input" id="form-check-input">
-                                        <label class="form-check-label" for="form-check-input">Recuérdame</label>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-lg-6">
-                                        <a href="#" class="ayuda">¿Necesitas ayuda?</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+        <form>
+            <div class="contendorForm container-fluid">
+                <div class="row">
+                    <div><h1 class="letInici" style="color:#00001f; font-weight: 550">Inicia sesión</h1></div>
+                </div>
 
+                <div class="row" style="width:100%;">
+                    <div class="col-md-12 col-sm-12 col-xs-12 cajasTexto">
+                        <input class="form-control email " id="email" name="correo" type="text" placeholder="Correo Eléctronico" value="abner@gmail.com">
+                        <div id="text-error-email" class="mensaje-error">* Ingrese correo</div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 cajasTexto">
+                        <input class="form-control pass" id="pass" name="contrasena" type="password" placeholder="Contraseña">
+                        <div id="text-error-pass" class="mensaje-error">* Ingrese contraseña</div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <button  type="button" class="btn btn-danger" id="iniciar-sesion">Login</button>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <button  type="button" class="btn btn-primary" id="google-login">Entrar con Google</button>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <input type="checkbox" class="form-check-input" id="form-check-input">
+                        <label class="form-check-label" for="form-check-input">Recuérdame</label>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-lg-6 text-right">
+                        <a href="http://localhost:8002/sigin/index.html" class="ayuda">Registrarme</a>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <a href="#" class="ayuda">¿Necesitas ayuda?</a>
+                    </div>
+                </div>
             </div>
-        </div>
-
+        </form>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-auth.js"></script>
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/bootstrap.min.js"> </script>
     <script src="js/controlador-login.js"></script>

@@ -1,4 +1,15 @@
 $(document).ready(function () {
+    // Inicializa firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyCM2jp8p2USl3cUe5gIRZunZihVA8wdoLA",
+        authDomain: "fir-test-10f42.firebaseapp.com",
+        databaseURL: "https://fir-test-10f42.firebaseio.com",
+        projectId: "fir-test-10f42",
+        storageBucket: "fir-test-10f42.appspot.com",
+        messagingSenderId: "763858987167",
+        appId: "1:763858987167:web:8fc50fdd975717e7"
+    };
+    firebase.initializeApp(firebaseConfig);
 
     $("#iniciar-sesion").click(function () {
         loguear();
@@ -108,25 +119,40 @@ function registrar(){
         contrasenia: $("#pass").val()       
     }
 
-    alert($("form").serialize());
-    $.ajax({
-        url: `/usuarios/registrar-usuario`,
-        method: "POST",
-        data: parametros, //Cadena en formato URLEncoded
-        dataType: 'json',
-        success: function (res) {
-            if(res.estatus == 0){
-                console.log(res);
-                limpiarItems()
-                window.location.href = "../login"
-            }else if(res.estatus == 1)
-                alert(res.mensaje);
-                
-        },
-        error: function(error){
-            console.log(error);
+    firebase.auth().createUserWithEmailAndPassword(parametros.email, parametros.contrasenia).then(function(result){
+        console.log(result);
+
+        // Agrear NodeJS
+        
+        alert('Usuario creado exitosamente');
+    }).catch(function(error) {
+        console.log(error);
+        if(error.code === 'auth/email-already-in-use'){
+            alert('Este usuario ya existe');
+        }else{
+            alert('Ocurrió un error');
         }
-    });    
+    });
+
+    // alert($("form").serialize());
+    // $.ajax({
+    //     url: `/usuarios/registrar-usuario`,
+    //     method: "POST",
+    //     data: parametros, //Cadena en formato URLEncoded
+    //     dataType: 'json',
+    //     success: function (res) {
+    //         if(res.estatus == 0){
+    //             console.log(res);
+    //             limpiarItems()
+    //             window.location.href = "../login"
+    //         }else if(res.estatus == 1)
+    //             alert(res.mensaje);
+                
+    //     },
+    //     error: function(error){
+    //         console.log(error);
+    //     }
+    // });    
 }
 
 function limpiarItems(){

@@ -1,8 +1,22 @@
 $(document).ready(function () {
+    // Inicializa firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyCM2jp8p2USl3cUe5gIRZunZihVA8wdoLA",
+        authDomain: "fir-test-10f42.firebaseapp.com",
+        databaseURL: "https://fir-test-10f42.firebaseio.com",
+        projectId: "fir-test-10f42",
+        storageBucket: "fir-test-10f42.appspot.com",
+        messagingSenderId: "763858987167",
+        appId: "1:763858987167:web:8fc50fdd975717e7"
+    };
+    firebase.initializeApp(firebaseConfig);
 
     $("#iniciar-sesion").click(function () {
-       
         loguear();
+    });
+
+    $("#google-login").click(function () {
+        loguearGoogle();
     });
 
     $("#email").keyup(function () {
@@ -55,6 +69,19 @@ function loguear() {
         iniciar();
 }
 
+function loguearGoogle(){
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        console.log(result);
+
+        // Llamar a NodeJS
+    }).catch(function(error) {
+        console.log(error);
+    });
+    console.log('logueando con google');
+}
+
 function validarCampoVacio(campo) {
     if ($(`#${campo}`).val() == '') {
         console.log("Esta vacio el campo:" + campo);
@@ -80,31 +107,44 @@ function validarCorreo() {
     }
 }
 
-function iniciar(){        
-   
+function iniciar(){
     console.log($("form").serialize());
-    $.ajax({
-        url:"/usuarios/inciar-sesion",
-        method:"POST",
-        data: $("form").serialize(),
-        dataType:"json", //json
-        success: function(respuesta){ //200 OK
+    var email = $("#email").val();
+    var password = $("#pass").val();
 
-            if (respuesta.estado == 1){
-                console.log(respuesta);
-                alert(respuesta.mensaje);
-
-            }else if(respuesta.estado == 0){
-                console.log(respuesta);
-                // alert(respuesta.mensaje);
-                window.location.href ="/home.html";
-            }
-            
-        },
-        error:function(error){
-            console.error(error);
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+        console.log(user);
+        // Llamado a NodeJS
+    }).catch(function(error) {
+        console.log(error);
+        if(error.code === "auth/user-not-found"){
+            alert("No se encuentra el usuario");
+        }else if(error.code === "auth/wrong-password"){
+            alert("Contraseña incorrecta");
         }
     });
+    // $.ajax({
+    //     url:"/usuarios/inciar-sesion",
+    //     method:"POST",
+    //     data: $("form").serialize(),
+    //     dataType:"json", //json
+    //     success: function(respuesta){ //200 OK
+
+    //         if (respuesta.estado == 1){
+    //             console.log(respuesta);
+    //             alert(respuesta.mensaje);
+
+    //         }else if(respuesta.estado == 0){
+    //             console.log(respuesta);
+    //             // alert(respuesta.mensaje);
+    //             window.location.href ="/home.html";
+    //         }
+            
+    //     },
+    //     error:function(error){
+    //         console.error(error);
+    //     }
+    // });
 }
 
 

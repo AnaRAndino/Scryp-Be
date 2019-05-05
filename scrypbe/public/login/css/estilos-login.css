@@ -31,7 +31,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     border-radius: 4px;
-    padding: 60px 5px 40px 68px;
+    padding: 60px 30px 40px 30px;
 }
 
 .letInici{
@@ -100,12 +100,21 @@ body{
 }
 
 #iniciar-sesion{
-    margin-top: 30px;
+    margin-top: 1em;
     width: 100%;
     height: 50px;
     font-weight: 700;
     background-color: #5c6ac4;
     border-color: #5c6ac4;
+}
+
+#google-login{
+    margin-top: 1em;
+    width: 100%;
+    height: 50px;
+    font-weight: 700;
+    background-color: #CF4332;
+    border-color: #CF4332;
 }
 
 .form-check-input{

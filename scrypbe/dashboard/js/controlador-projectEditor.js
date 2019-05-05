@@ -1,3 +1,103 @@
+// --------------------------Indexed DB--------------------------------//
+var db;
+function indexedDB() {
+
+
+
+}
+
+function guardarIndexedDb() {
+    alert("dentro de indexeddb");
+    // var transaction = db.transaction(["archivos"], "readwrite");
+    // var ObjestoreArchivos = transaction.objectStore("archivos");
+
+    // var cursor = ObjestoreArchivos.openCursor();
+    // cursor.onerror = function (event) {
+    //     console.log("case if have an error");
+    // };
+
+    // cursor.onsuccess = function (event) {
+    //     var cursor = event.target.result;
+    //     if (cursor) {
+    //         var respuesta = cursor.value;
+    //         console.log(respuesta);
+    //         if (respuesta.archivoHtml.idArchivo == archivoHtml._id) {//we find by id an user we want to update
+    //             var archivo = {
+    //                 archivoHtml: {
+    //                     idArchivo: archivoHtml._id,
+    //                     contenido: editorHTML.getValue()
+    //                 },
+    //                 archivoCSS: {
+    //                     idArchivo: archivoHtml._id,
+    //                     contenido: editorHTML.getValue()
+    //                 },
+    //                 achivoJS: {
+    //                     idArchivo: archivoHtml._id,
+    //                     contenido: editorHTML.getValue()
+    //                 },
+    //                 idCarpetaPRoyecto: archivoHtml.idCarpetaContenedora
+    //             }
+
+    //             var res = cursor.update(archivo);
+    //             res.onsuccess = function (e) {
+    //                 console.log("update success!!");
+    //             }
+    //             res.onerror = function (e) {
+    //                 console.log("update failed!!");
+    //             }
+    //             console.log("Encontrado");
+    //         } else {
+    //             // guardarArchivo();
+    //             console.log("No Encontrado");
+    //         }
+    //         cursor.continue();
+    //     }
+    //     else {
+    //         console.log("fin mise a jour");
+    //     }
+    // }
+
+
+    // function guardarArchivo(){
+
+    // }
+
+
+
+    var transaccion = db.transaction(['archivos'], 'readwrite');
+    var objectStoreCategorias = transaccion.objectStore('archivos');
+
+    var solicitud = objectStoreCategorias.add(
+        {
+        archivoHtml: {
+            idArchivo: archivoHtml._id,
+            contenido: editorHTML.getValue()
+        },
+        archivoCSS: {
+            idArchivo: archivoHtml._id,
+            contenido: editorHTML.getValue()
+        },
+        achivoJS: {
+            idArchivo: archivoHtml._id,
+            contenido: editorHTML.getValue()
+        },
+        idCarpetaPRoyecto: archivoHtml.idCarpetaContenedora
+    });
+
+
+    solicitud.onsuccess = function (evento) {
+        console.log("Se agrego con 'exito al objectsrore de Proyectos");
+        console.log(evento);
+    }
+    solicitud.onerror = function (event) {
+        console.log("Error: " + event);
+    };
+}
+
+
+
+
+//---------------------------------------------------------------------//
 var archivoHtml;
 var archivoCss;
 var archivoJS;
@@ -6,9 +106,13 @@ var editorHTML = ace.edit("editor");
 var editorCSS = ace.edit("editor1");
 var editorJS = ace.edit("editor2");
 
+
+
 $(document).ready(function () {
     // console.log(editorHTML.find('head').end.row);
-    
+
+    // indexedDB();
+
     consultarArchivos();
     cargarProyectoCarpeta();
 });
@@ -25,14 +129,14 @@ function consultarArchivos() {
         success: function (res) {
             console.log(res);
 
-            if(res.length==0)
+            if (res.length == 0)
                 consultarArchivosCompartidos();
-            else{
+            else {
                 for (let i = 0; i < res.length; i++) {
                     var archivo = res[i]
                     console.log(archivo.nombreArchivo);
                     console.log("cant archivos:" + res.length);
-    
+
                     if (archivo.extension == "html")
                         archivoHtml = archivo
                     else if (archivo.extension == "css")
@@ -40,7 +144,7 @@ function consultarArchivos() {
                     else if (archivo.extension == "js")
                         archivoJS = archivo
                 }
-    
+
                 cargarArchivos(archivoHtml, archivoCss, archivoJS);
             }
         },
@@ -51,7 +155,8 @@ function consultarArchivos() {
     });
 }
 
-function consultarArchivosCompartidos(){
+
+function consultarArchivosCompartidos() {
     $.ajax({
         url: `/archivos/cargar-archivos-project`,
         method: "GET",
@@ -118,7 +223,7 @@ function cargarArchivos(archivoHtml, archivoCss, archivoJS) {
     });
 
     function ejecutar() {
-        var scriptJquery= '<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>'
+        var scriptJquery = '<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>'
 
         var code = document.getElementById("code").contentWindow.document;
         code.open();
@@ -159,14 +264,14 @@ function actualizarArchivo(tipoArchivo) {
         }
     });
 
-    
+
 }
 
-function volverPRincipal(){
-    window.location.href ="/home.html"
+function volverPRincipal() {
+    window.location.href = "/home.html"
 }
 
-function cargarProyectoCarpeta(){
+function cargarProyectoCarpeta() {
     $.ajax({
         url: `/carpetas/proyectoCarpeta`,
         method: "GET",
@@ -185,13 +290,14 @@ function cargarProyectoCarpeta(){
     });
 }
 
-$("#btnGuardarProyecto").click(function(){
+$("#btnGuardarProyecto").click(function () {
     var resultadohtml = actualizarArchivo("html");
     var resultadoCSS = actualizarArchivo("css");
     var resultadoJS = actualizarArchivo("js");
+    guardarIndexedDb();
 });
 
-$("#btnFavorite").click(function(){
+$("#btnFavorite").click(function () {
     $.ajax({
         url: `/carpetas/modificarEstadoDestacado`,
         method: "PUT",
@@ -206,26 +312,26 @@ $("#btnFavorite").click(function(){
     });
 })
 
-$("#btnShare").click(function(){
-    
+$("#btnShare").click(function () {
+
     $('#myModalShare').modal('show');
-  
+
 })
 
-function compartir(){
+function compartir() {
     console.log("here compa");
     $.ajax({
         url: "/carpetas/compartir",
         method: "PUT",
-        data: "colaborador="+$("#txt-colaborador").val(),
+        data: "colaborador=" + $("#txt-colaborador").val(),
         dataType: 'json',
-        success: function (respuesta){
-            if (respuesta.estado==1){
+        success: function (respuesta) {
+            if (respuesta.estado == 1) {
                 console.log("bien");
-            }else if(respuesta.estado==0)
+            } else if (respuesta.estado == 0)
                 alert(respuesta.mensaje);
-            
-            
+
+
         },
         error: function () {
             console.log(error);
@@ -236,32 +342,31 @@ function compartir(){
 
 
 
- 
-  // Start file download.
 
-  $("#descargarHtml").click(function(){
-    download(archivoHtml.nombreArchivo + ".html",editorHTML.getValue());
-  })
+// Start file download.
 
-  $("#descargarCss").click(function(){
-    download(archivoCss.nombreArchivo + ".css",editorCSS.getValue());
-  })
+$("#descargarHtml").click(function () {
+    download(archivoHtml.nombreArchivo + ".html", editorHTML.getValue());
+})
 
-  $("#descargarJs").click(function(){
-    download(archivoJS.nombreArchivo + ".js",editorJS.getValue());
-  })
+$("#descargarCss").click(function () {
+    download(archivoCss.nombreArchivo + ".css", editorCSS.getValue());
+})
+
+$("#descargarJs").click(function () {
+    download(archivoJS.nombreArchivo + ".js", editorJS.getValue());
+})
 
 function download(filename, text) {
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     element.setAttribute('download', filename);
-  
+
     element.style.display = 'none';
     document.body.appendChild(element);
-  
+
     element.click();
-  
+
     document.body.removeChild(element);
-  }
- 
-  
+}
+

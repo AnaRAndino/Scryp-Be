@@ -160,20 +160,21 @@
                 <div class="modal-body">
                     <div class="form container-fluid">
                         <div id="div-compartir" class="div-compartir row">
-                                    <div class="col-lg-9  col-md-9 col-sm-9 div-compartir-text">
-                                        <input type="text" placeholder="Usuario/correo" id="txt-colaborador"
-                                            class="form-control">
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-2 div-compartir-btn">
-                                        <button type="button" class="btn-primary form-control"><i class="fas fa-plus" onclick="compartir()"></i></button>
-                                    </div>
-                        </div>
-                            <div style="width:100%" class="row">
-                                    Colaboradores
-                                    <ul class="" id="listaCompartido" style="padding:10px">
-
-                                    </ul>
+                            <div class="col-lg-9  col-md-9 col-sm-9 div-compartir-text">
+                                <input type="text" placeholder="Usuario/correo" id="txt-colaborador"
+                                    class="form-control">
                             </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 div-compartir-btn">
+                                <button type="button" class="btn-primary form-control"><i class="fas fa-plus"
+                                        onclick="compartir()"></i></button>
+                            </div>
+                        </div>
+                        <div style="width:100%" class="row">
+                            Colaboradores
+                            <ul class="" id="listaCompartido" style="padding:10px">
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -184,7 +185,57 @@
         </div>
     </div>
 
+    <script>
+        var db;
+        (function () {
+            
+            if (!('indexedDB' in window)) {
+                console.err("El navegador no soporta indexedDB");
+                return;
+            }
+            //***************** |  Abriendo una BD | ***********/
+            //open crea la base de datos si no existe, en caso contrario la abre para utilizarla
+            var solicitud = window.indexedDB.open("scryp-be", 1);//Parametros: nombre, version. La version debe ser entero
 
+            solicitud.onsuccess = function (evento) {
+                db = solicitud.result;
+                console.log("Se abrio o se creo la BD");
+            }
+            solicitud.onerror = function (evento) {
+                console.error(evento);
+            }
+
+            //Evento que se ejecuta cuando se crea  o actualiza la base datos
+            solicitud.onupgradeneeded = function (evento) {
+                console.log('Se creo o actualizo la BD');
+
+                db = evento.target.result;//Obtener referencia de la BD creada
+
+
+                //Objetstore Categorias
+                var objectStoreCarpetas = db.createObjectStore("carpetas", { keyPath: "codigoCarepeta", autoIncrement: true });
+
+                objectStoreCarpetas.transaction.oncomplete = function (evento) {
+                    console.log("El object store de carpetas se creo con exito");
+
+                }
+                objectStoreCarpetas.transaction.onerror = function (evento) {
+                    console.log("Error al crear el object store de carpetas");
+                }
+
+                //Objetstore Peliculas
+                var objectStoreArchivos = db.createObjectStore("archivos", { keyPath: "codigoArchivo", autoIncrement: true });
+
+                objectStoreArchivos.transaction.oncomplete = function (evento) {
+                    console.log("El object store de archivos se creo con exito");
+
+                }
+                objectStoreArchivos.transaction.onerror = function (evento) {
+                    console.log("Error al crear el object store de usuarios");
+                }
+            }
+        })();
+    </script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.min.js"></script>
