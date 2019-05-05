@@ -2,7 +2,7 @@
 Proyecto Sistemas expertos I 2019
 
 
-### Compiles and hot-reloads for development
+### Seleccionar Carpeta
 ```
 Situarse en la carpeta Scryp-be y ejecutar los paso a continuación.
 ```
@@ -11,12 +11,12 @@ Situarse en la carpeta Scryp-be y ejecutar los paso a continuación.
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Inciar el servidor
 ```
 nodemon index.js
 ```
 
-### Create db in mogo db
+### Crear BD en MongoDB
 ```
 Copy text in file inertar-info.js
 ```
