@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Netflix</title>
+    <title>Scryp-Be</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -20,26 +20,30 @@
         <form>
             <div class="contendorForm container-fluid">
                 <div class="row">
-                    <div><h1 class="letInici" style="color:#00001f; font-weight: 550">Inicia sesión</h1></div>
+                    <div>
+                        <h1 class="letInici" style="color:#00001f; font-weight: 550">Inicia sesión</h1>
+                    </div>
                 </div>
 
                 <div class="row" style="width:100%;">
                     <div class="col-md-12 col-sm-12 col-xs-12 cajasTexto">
-                        <input class="form-control email " id="email" name="correo" type="text" placeholder="Correo Eléctronico" value="abner@gmail.com">
+                        <input class="form-control email " id="email" name="correo" type="text"
+                            placeholder="Correo Eléctronico" >
                         <div id="text-error-email" class="mensaje-error">* Ingrese correo</div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-xs-12 cajasTexto">
-                        <input class="form-control pass" id="pass" name="contrasena" type="password" placeholder="Contraseña">
+                        <input class="form-control pass" id="pass" name="contrasena" type="password"
+                            placeholder="Contraseña">
                         <div id="text-error-pass" class="mensaje-error">* Ingrese contraseña</div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <button  type="button" class="btn btn-danger" id="iniciar-sesion">Login</button>
+                        <button type="button" class="btn btn-danger" id="iniciar-sesion">Login</button>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <button  type="button" class="btn btn-primary" id="google-login">Entrar con Google</button>
+                        <button type="button" class="btn btn-primary" id="google-login">Entrar con Google</button>
                     </div>
 
                     <div class="col-md-6 col-sm-6 col-lg-6">
@@ -57,6 +61,30 @@
                 </div>
             </div>
         </form>
+    </div>
+
+
+    <div class="modal fade" id="modalSuccess" role="dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="color: white">
+                    <h4 class="modal-title-new-view-source"></h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>

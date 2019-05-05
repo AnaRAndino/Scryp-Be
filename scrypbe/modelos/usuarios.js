@@ -6,10 +6,10 @@ var esquema = new mongoose.Schema(
         nombreUsuario: String,
         nombre: String,
         email: String,
-        contrasenia:String,
         edad: Number,
         genero: String,
         pais: String,
+        urlFoto: String,
         almacenamiento :  {
                 idPlan:Number,
                 cantidadProyectosDisponibles:Number
@@ -43,7 +43,5 @@ var esquema = new mongoose.Schema(
 	
     }
 );
-//El primer parametro es el singular de la coleccion, 
-//mediante este parametro hace el enlace,
-//si se pone mal este parametro no se podria realizar ninguna instruccion
+
 module.exports = mongoose.model('usuario',esquema);

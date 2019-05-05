@@ -1,13 +1,8 @@
 // --------------------------Indexed DB--------------------------------//
 var db;
-function indexedDB() {
 
-
-
-}
 
 function guardarIndexedDb() {
-    alert("dentro de indexeddb");
     // var transaction = db.transaction(["archivos"], "readwrite");
     // var ObjestoreArchivos = transaction.objectStore("archivos");
 
@@ -69,20 +64,20 @@ function guardarIndexedDb() {
 
     var solicitud = objectStoreCategorias.add(
         {
-        archivoHtml: {
-            idArchivo: archivoHtml._id,
-            contenido: editorHTML.getValue()
-        },
-        archivoCSS: {
-            idArchivo: archivoHtml._id,
-            contenido: editorHTML.getValue()
-        },
-        achivoJS: {
-            idArchivo: archivoHtml._id,
-            contenido: editorHTML.getValue()
-        },
-        idCarpetaPRoyecto: archivoHtml.idCarpetaContenedora
-    });
+            archivoHtml: {
+                idArchivo: archivoHtml._id,
+                contenido: editorHTML.getValue()
+            },
+            archivoCSS: {
+                idArchivo: archivoHtml._id,
+                contenido: editorHTML.getValue()
+            },
+            achivoJS: {
+                idArchivo: archivoHtml._id,
+                contenido: editorHTML.getValue()
+            },
+            idCarpetaPRoyecto: archivoHtml.idCarpetaContenedora
+        });
 
 
     solicitud.onsuccess = function (evento) {
@@ -294,7 +289,12 @@ $("#btnGuardarProyecto").click(function () {
     var resultadohtml = actualizarArchivo("html");
     var resultadoCSS = actualizarArchivo("css");
     var resultadoJS = actualizarArchivo("js");
+    $(".alert-success").html(`
+    <strong>Success!</strong> Se guardaron los cambios
+    `)
+  $("#modalSuccess").modal("show");
     guardarIndexedDb();
+ 
 });
 
 $("#btnFavorite").click(function () {
@@ -303,8 +303,10 @@ $("#btnFavorite").click(function () {
         method: "PUT",
         dataType: 'json',
         success: function (respuesta) {
-            console.log(respuesta);
-            alert("Proyecto añadido a favoritos");
+            $(".alert-success").html(`
+                 <strong>Success!</strong> Proyecto añadido a favoritos
+            `)
+            $("#modalSuccess").modal("show");
         },
         error: function (error) {
             console.log(error);
@@ -327,7 +329,10 @@ function compartir() {
         dataType: 'json',
         success: function (respuesta) {
             if (respuesta.estado == 1) {
-                console.log("bien");
+                $(".alert-success").html(`
+                    <strong>Success!</strong> Proyecto compartido con ${$("#txt-colaborador").val()}
+                    `)
+                $("#modalSuccess").modal("show");
             } else if (respuesta.estado == 0)
                 alert(respuesta.mensaje);
 

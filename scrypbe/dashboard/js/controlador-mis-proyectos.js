@@ -174,7 +174,7 @@ function  cargarSnippets(){
         var snipt = res[i]
         archivos += `
               <div class="contenedor-archivo col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                  <div class="img-archivo" style="background-image:url('../img/snipt.png'); background-size: contain;" ondblclick="cargarCodigo('${snipt._id}')"></div>
+                  <div class="img-archivo" style="background-image:url('../img/snipt4.png'); background-size: contain;" ondblclick="cargarCodigo('${snipt._id}')"></div>
                   <div style="text-align:center">
                       <span class="nom-carpeta">${snipt.nombre}.${snipt.extension}</span>
                   </div>

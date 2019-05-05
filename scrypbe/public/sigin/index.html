@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Netflix</title>
+    <title>Scryp-Be</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -30,25 +30,28 @@
                 <div class="row ">
                     <div class="col-md-10 col-sm-10 col-xs-10 cajasTexto">
                         <form id="frmPrueba">
-                            <input class="form-control nombre " name="nombre" id="nombre" type="text" placeholder="Nombre">
+                            <input class="form-control nombre " name="nombre" id="nombre" type="text"
+                                placeholder="Nombre">
                             <div id="text-error-nombre" class="mensaje-error">
                                 * Ingrese un Nombre
                             </div>
-                            <input class="form-control nombtre-usuario " name="nombreUsuario" id="nombre-usuario" type="text" placeholder="Nombre Usuario">
+                            <input class="form-control nombtre-usuario " name="nombreUsuario" id="nombre-usuario"
+                                type="text" placeholder="Nombre Usuario">
                             <div id="text-error-nombre-usuario" class="mensaje-error">
                                 * Ingrese un nombre de usuario
                             </div>
-                            <input class="form-control email " name="email" id="email" type="text" placeholder="Correo Eléctronico"
-                                onkeyup="validarCorreo()">
+                            <input class="form-control email " name="email" id="email" type="text"
+                                placeholder="Correo Eléctronico" onkeyup="validarCorreo()">
                             <div id="text-error-email" class="mensaje-error">
                                 * Ingrese correo
                             </div>
-                            <input class="form-control pass" name="contrasenia" id="pass" type="password" placeholder="Contraseña">
+                            <input class="form-control pass" name="contrasenia" id="pass" type="password"
+                                placeholder="Contraseña">
                             <div id="text-error-pass" class="mensaje-error">
                                 * Ingrese contraseña
                             </div>
-                            <input class="form-control conf-pass" id="conf-pass" type="password" placeholder="Confimar Contraseña"
-                                onkeyup="validarContrasenias()">
+                            <input class="form-control conf-pass" id="conf-pass" type="password"
+                                placeholder="Confimar Contraseña" onkeyup="validarContrasenias()">
                             <div id="text-error-conf-pass" class="mensaje-error">
                                 * Ingrese confirmacion de contraseña
                             </div>
@@ -56,7 +59,8 @@
                                 * Contraseñas no coinciden
                             </div>
 
-                            <button type="button" class="btn btn-danger"  id="iniciar-sesion">Iniciar sesión</button>
+                            
+                            <button type="button" class="btn btn-danger" id="iniciar-sesion">Iniciar sesión</button>
                         </form>
 
                     </div>
@@ -79,7 +83,33 @@
             </div>
         </form>
     </div>
-    
+
+
+
+
+
+        <div class="modal fade" id="modal" role="dialog" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+        
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" style="color: white">
+                            <h4 class="modal-title-new"></h4>
+                            <button type="button" class="close" data-dismiss="modal" style="color: white">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="alert alert-success" role="alert" >
+                                        Bienvenido
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+
     <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-auth.js"></script>
     <script src="../js/jquery-3.2.1.min.js"></script>

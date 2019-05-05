@@ -52,12 +52,22 @@
     .side-colum {
       display: none;
     }
-    .btn-info{
+    /* .btn-info{
       display: none;
     }
     .btn-primary{
       display: none;
+    } */
+    .spanBotones{
+      display: none;
     }
+   
+}
+
+@media (max-width:992px){
+  .spanSidebar{
+    display:none;
+  }
 }
 
 .logo{
@@ -109,6 +119,8 @@
     background-size: cover;
     border-radius: 100%;
     margin: 15px 35px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .perfil span{
@@ -276,6 +288,9 @@ a{
     background-color: white;
     overflow: scroll;
 }
+.main-content-div{
+  margin-bottom: 50px;
+}
 
 
 /* proyexcto */
@@ -346,10 +361,15 @@ a{
   width: 100%;
 }
 
-.modal-dialog {
+.modal-dialog-snipt{
   max-width: 900px;
 }
 
 .modal-header{
   background-color: #4b1c68;
+}
+
+#nuevoProyecto{
+  margin-left: auto;
+  margin-right: auto;
 }

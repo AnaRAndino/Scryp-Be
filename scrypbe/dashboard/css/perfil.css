@@ -4,7 +4,7 @@
 }
 
 .profile-left {
-    padding-left: 0;
+    padding-left: 15;
     height: 100%;
     padding-right: 0;
     background-color: #e6e6e6;
@@ -22,6 +22,7 @@
     background-image: url(../../img/side-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 6px 6px 0px 0px;
 }
 
 

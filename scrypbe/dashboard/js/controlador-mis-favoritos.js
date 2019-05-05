@@ -17,24 +17,34 @@ function consultarFavoritos(){
             
             for (let i = 0; i < res.length; i++) {
               var carpeta =res[i]
-           
-              carpetas +=  `
-                <div class="contenedor-carpeta col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div id="fondoImagen" ondblclick=cambiarCodigoCarpeta('${carpeta._id}')>
-                    <div id="fondoContenedor">
-                        <i class="fas fa-code fa-2x" style="color:#5c6ac4"></i>
-                        <div class="nombre">
-                            <span class="nom-carpeta">${carpeta.nombreCarpeta}</span>
-                        </div>
-                        <i class="fas fa-code fa-2x" style="color:#5c6ac4;float: right; padding-top: 10px;"></i>
+              carpetas += `
+                <div class="contenedor-carpeta col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                    <div class="img-proyecto" onclick=cambiarCodigoCarpeta('${carpeta._id}')>
+                    </div>
+                    <div style="text-align: center">
+                        <span class="nom-carpeta">${carpeta.nombreCarpeta}</span>
                     </div>
                 </div>
-            </div>
-              `              
+              `
+           
+            //   carpetas +=  `
+            //     <div class="contenedor-carpeta col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            //     <div id="fondoImagen" ondblclick=cambiarCodigoCarpeta('${carpeta._id}')>
+            //         <div id="fondoContenedor">
+            //             <i class="fas fa-code fa-2x" style="color:#5c6ac4"></i>
+            //             <div class="nombre">
+            //                 <span class="nom-carpeta">${carpeta.nombreCarpeta}</span>
+            //             </div>
+            //             <i class="fas fa-code fa-2x" style="color:#5c6ac4;float: right; padding-top: 10px;"></i>
+            //         </div>
+            //     </div>
+            // </div>
+            //   `              
             }
             $(".fila").append(
               carpetas
              )
+             
         },
         error: function(){
             console.log(error);
@@ -56,6 +66,7 @@ function cambiarCodigoCarpeta(codigoCarpeta){
         $(".fila").html("")
         cargarProyectos();
         cargarArchivos();
+        cargarSnippets();
           
   },error: function(){
           console.log(error);

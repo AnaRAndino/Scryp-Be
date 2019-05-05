@@ -38,6 +38,27 @@ function llenarFormularioPerfil(data){
         <li><span>País: ${data.pais}</span></li>
         `
     )
+
+    if (data.urlFoto=="") {
+        $("#img-perfil-div").append(`
+            <div class="div-img" style="background-image:url('../img/woman-2.jpg')">
+
+            </div>
+        `)
+      } else {
+            $("#img-perfil-div").append(`
+                <div class="div-img" style="background-image:url('${data.urlFoto}')">
+                </div>
+            `)
+      }
+      $("#cantProyectos").append(`
+        <span>${data.proyectos.length}</span> <span>Proyectos</span>
+      `)
+
+      $("#cantSnippets").append(`
+        <span>${data.snippets.length}</span> <span>Snippets</span>
+      `)
+      
 }
 
 
@@ -85,15 +106,12 @@ function validarCampoVacio(campo) {
 
 
 function actualizar(){
-    
-    alert( $('#frmperfil').serialize());
     $.ajax({
         url:`/usuarios/actualizar-perfil`,
         method: "PUT",
         data: $('#frmperfil').serialize(),
         dataType: 'json',
         success: function(respuesta){       
-            console.log(respuesta);
             $("#namePerfil").html($("#nombreUsuario").val());
             $("#profile-info").html(
                 `
@@ -103,6 +121,11 @@ function actualizar(){
                 <li><span>País: ${$("#pais").val()}</span></li>
                 `
             )
+
+            $(".alert-success").html(`
+      <strong>Success!</strong> Se guardaron los cambios
+      `)
+      $("#modalSuccess").modal("show");
         },
         error: function(){
             console.log(error);

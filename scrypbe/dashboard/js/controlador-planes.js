@@ -52,6 +52,10 @@ $("#btnFree").click(function(){
         dataType: 'json',
         success: function(respuesta){       
             console.log(respuesta);
+            $(".alert-success").html(`
+      <strong>Success!</strong> Plan Contratado
+      `)
+      $("#modalSuccess").modal("show");
         },
         error: function(){
             console.log(error);

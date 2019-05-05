@@ -125,8 +125,7 @@ function registrar(){
 
         parametros.firebaseId = result.user.uid;
         // Agrear NodeJS
-        
-    alert($("form").serialize());
+    
     $.ajax({
         url: `/usuarios/registrar-usuario`,
         method: "POST",
@@ -135,7 +134,8 @@ function registrar(){
         success: function (res) {
             if(res.estatus == 0){
                 console.log(res);
-                limpiarItems()
+               $("#modal").modal("show");
+
                 window.location.href = "../login"
             }else if(res.estatus == 1)
                 alert(res.mensaje);
@@ -145,8 +145,6 @@ function registrar(){
             console.log(error);
         }
     });    
-        
-        alert('Usuario creado exitosamente');
     }).catch(function(error) {
         console.log(error);
         if(error.code === 'auth/email-already-in-use'){
@@ -158,7 +156,5 @@ function registrar(){
 
 }
 
-function limpiarItems(){
 
-}
 

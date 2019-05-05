@@ -15,11 +15,10 @@ router.get('/obtener-sesion', function (req, res) {
 
 
 router.post("/inciar-sesion", function (req, res) {
-    usuario.find({ email: req.body.correo})
+    usuario.find({ email: req.body.correo })
         .then(data => {
             if (data.length == 1) {//Significa que si encontro un usuario con las credenciales indicadas
                 //Establecer las variables de sesion  
-                console.log(data[0].almacenamiento)
                 req.session.codigoUsuario = data[0]._id;
                 req.session.correoUsuario = data[0].email;
                 res.cookie("idCarpeta", 0);
@@ -36,7 +35,56 @@ router.post("/inciar-sesion", function (req, res) {
 });
 
 
+router.post("/inciar-sesion-google", function (req, res) {
+    usuario.find({ email: req.body.correo })
+        .then(data => {
 
+            if (data.length == 1) {//Significa que si encontro un usuario con las credenciales indicadas
+                //Establecer las variables de sesion  
+                req.session.codigoUsuario = data[0]._id;
+                req.session.correoUsuario = data[0].email;
+                res.cookie("idCarpeta", 0);
+                res.cookie("cantDisponibles", data[0].almacenamiento.cantidadProyectosDisponibles);
+                res.send({ estado: 0, mensaje: "Usuario autenticado con éxito", usuario: data[0] });
+
+            } else {
+                var objUsuario = new usuario({
+                    firabaseId: req.body.firabaseId,
+                    nombreUsuario: req.body.nombre, nombre: req.body.nombre,
+                    email: req.body.correo,
+                    edad: 0, genero: "x",
+                    urlFoto: req.body.urlFoto,
+                    almacenamiento: {
+                        idPlan: 1, tipoPlan: "Free", cantidadProyectosDisponibles: 5
+                    },
+                    facturas: 0
+                });
+                objUsuario.save()
+                    .then(obj => {
+                        usuario.find({ email: req.body.correo })
+                            .then(data => {
+                                if (data.length == 1) {//Significa que si encontro un usuario con las credenciales indicadas
+                                    //Establecer las variables de sesion  
+                                    req.session.codigoUsuario = data[0]._id;
+                                    req.session.correoUsuario = data[0].email;
+                                    res.cookie("idCarpeta", 0);
+                                    res.cookie("cantDisponibles", data[0].almacenamiento.cantidadProyectosDisponibles);
+                                    res.send({ estado: 0, mensaje: "Usuario autenticado con éxito", usuario: data[0] });
+                                }
+                            })
+                            .catch(error => {
+                                res.send(error);
+                            })
+                    })
+                    .catch(error => {
+                        res.send(error);
+                    });
+            }
+        })
+        .catch(error => {
+            res.send(error);
+        });
+});
 /*--------------------registrar usuario--------------- */
 router.post('/registrar-usuario', function (req, res) {
     //consulta para verificar que no existe el usuario
@@ -46,10 +94,11 @@ router.post('/registrar-usuario', function (req, res) {
                 var objUsuario = new usuario({
                     firabaseId: req.body.firebaseId,
                     nombreUsuario: req.body.nombreUsuario, nombre: req.body.nombre,
-                    email: req.body.email, contrasenia: req.body.contrasenia,
+                    email: req.body.email,
                     edad: 0, genero: "x",
+                    urlFoto: "",
                     almacenamiento: {
-                        idPlan: 1, tipoPlan: "Free", cantidadProyectosDisponibles: 10
+                        idPlan: 1, tipoPlan: "Free", cantidadProyectosDisponibles: 5
                     },
                     facturas: 0
                 });
@@ -78,8 +127,7 @@ router.delete('/eliminar-usuario', function (req, res) {
 
 /*--------------------consultar perfil de usuario--------------- */
 router.get('/consultar-perfil', function (req, res) {
-    console.log("dentro consulta");
-    usuario.find({ _id: req.session.codigoUsuario }, { nombre: 1, nombreUsuario: 1, email: 1, edad: 1, genero: 1, pais: 1 })
+    usuario.find({ _id: req.session.codigoUsuario })
         .then(data => {
             res.send(data[0]);
         })
@@ -193,7 +241,6 @@ router.get("/cargarSnippet", function (req, res) {
             for (let i = 0; i < data[0].snippets.length; i++) {
                 if (data[0].snippets[i].idCarpetaContenedora == req.cookies.idCarpeta)
                     datos.push(data[0].snippets[i]);
-                console.log("test")
             }
             res.send(datos);
         })
@@ -204,10 +251,8 @@ router.get("/cargarSnippet", function (req, res) {
 
 
 
+
 router.put("/modificarContenidoSnippet", function (req, res) {
-    console.log(req.body.idSnippet);
-    console.log(req.session.codigoUsuario);
-    console.log(req.body.contenido);
     usuario.update({ _id: req.session.codigoUsuario, "snippets._id": req.body.idSnippet }, { $set: { "snippets.$.contenido": req.body.contenido } })
         .then(result => {
             res.send(result);
@@ -231,7 +276,6 @@ router.put("/crearSnippet", function (req, res) {
             }
         }
     ).then(result => {
-        console.log(result)
         res.send(result);
     })
         .catch(error => {
@@ -305,7 +349,7 @@ router.put("/crearProyecto", function (req, res) {
                                     })
                                     .then(result => {
                                         res.cookie("cantDisponibles", cantidadDispnible);
-                                        res.send(result);
+                                        res.send({estatus: 1,resulta:result});
                                     })
                                     .catch(error => {
                                         res.send(error);
@@ -332,52 +376,6 @@ router.put("/crearProyecto", function (req, res) {
 
 
 
-
-//crea los tres archivos por defecto cuando el proyecto es nuevo
-router.put("/crearArchivos/:idCarpetaPadre", function (req, res) {
-    usuario.update(
-        { _id: req.session.codigoUsuario },
-        {
-            $push: {
-                archivos: {
-                    $each:
-                        [{
-                            idCarpetaContenedora: req.params.idCarpetaPadre,
-                            nombreArchivo: "index",
-                            contenido: "",
-                            extension: "html"
-                        }
-                            , {
-                            idCarpetaContenedora: req.params.idCarpetaPadre,
-                            nombreArchivo: "estilos",
-                            contenido: "",
-                            extension: "css"
-                        }
-                            , {
-                            idCarpetaContenedora: req.params.idCarpetaPadre,
-                            nombreArchivo: "controlador",
-                            contenido: "",
-                            extension: "js"
-                        }]
-                }
-            }
-        }
-    )
-        .then(result => {
-            res.send(result);
-        })
-        .catch(error => {
-            res.send(error);
-        });
-});
-
-
-
-
-
-
-
-
 router.post("/cambiar-codigo-carpeta", function (req, res) {
     res.cookie("idCarpeta", req.body.codigoCarpeta);
     res.send({ mensaje: "Se guardo la cookie" });
@@ -387,7 +385,6 @@ router.post("/cambiar-codigo-snippet", function (req, res) {
     res.cookie("idSnippet", req.body.codigoSnippet);
     res.send({ mensaje: "Se guardo la cookie de snippet" });
 });
-
 
 
 //enviar informacion del proyecto al editor
@@ -406,8 +403,9 @@ router.get("/proyectoCarpeta", function (req, res) {
         });
 });
 
+
+//verifica que exista el usuario con el que va a compartir
 router.get("/colaborador/:correo", function (req, res) {
-    //console.log(req.params.correo)
     usuario.find({ $or: [{ email: req.params.correo }, { nombreUsuario: req.params.correo }] }, { email: 1, nombreUsuario: 1 })
         .then(data => {
             if (data.length == 0) {
@@ -424,24 +422,3 @@ router.get("/colaborador/:correo", function (req, res) {
 
 module.exports = router;
 
-// db.usuarios.update({_id:ObjectId("5ca917b691dcb4294c61cd37")},$set:{proyectos:["idProyecto" : "2", "nombreProyecto" : "test", "carpetas" :["idCarpeta":4,"idCarpetaPadre":"0"]] },
-// {"nombre" : "Romance", "orden" : 2, "descripcion" : "Lorem Ipsum" },
-// {"nombre" : "Comedia", "orden" : 3, "descripcion" : "Lorem Ipsum" });
-
-
-// db.usuarios.find({_id:ObjectId("5ca917b691dcb4294c61cd37")},{proyectos:1}).pretty()
-
-// db.usuarios.update({"_id" : ObjectId("5ca917b691dcb4294c61cd37")},{$push: {proyectos: { nombreProyecto:"Habitación Triple Standard" } }})
-// WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
-
-// Consultar,todasCarpetas:
-// db.usuarios.find({"_id" : ObjectId("5ca917b691dcb4294c61cd37")},{carpetas:1}).pretty()
-
-
-// Actualizar un campo de carpeta(array de elementos)
-//  db.usuarios.update({"_id" : ObjectId("5ca917b691dcb4294c61cd37"),"carpetas.idCarpeta":ObjectId("5cb9b704adad2b18e4151b5c")},{$set:{"carpetas.$.nombreCarpeta":"hola"}})
-//update({"_id" : ObjectId("5cbbbfc54250090de849a33b"),"carpetas._id":ObjectId("5cbbc6831dc95705e02a3bb2")},{$set:{"carpetas.$.estadoProyectoNuevo":false}})
-
-
-// Insertar una carpeta
-// db.usuarios.update({"_id" : ObjectId("5ca917b691dcb4294c61cd37")},{$push:{carpetas:{"idCarpeta":"023225"}}})

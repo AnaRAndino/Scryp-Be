@@ -69,19 +69,6 @@ function loguear() {
         iniciar();
 }
 
-function loguearGoogle() {
-    var provider = new firebase.auth.GoogleAuthProvider();
-
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        console.log(result);
-
-        // Llamar a NodeJS
-    }).catch(function (error) {
-        console.log(error);
-    });
-    console.log('logueando con google');
-}
-
 function validarCampoVacio(campo) {
     if ($(`#${campo}`).val() == '') {
         console.log("Esta vacio el campo:" + campo);
@@ -108,10 +95,10 @@ function validarCorreo() {
 }
 
 function iniciar() {
-    console.log($("form").serialize());
     var email = $("#email").val();
     var password = $("#pass").val();
 
+    //busca el usuario en la base de datos de firebase
     firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {
         console.log(user);
         // Llamado a NodeJS
@@ -129,6 +116,11 @@ function iniciar() {
                 } else if (respuesta.estado == 0) {
                     console.log(respuesta);
                     // alert(respuesta.mensaje);
+                    $(".alert-success").html(`
+      <strong>Success!</strong> Login Exitoso
+      `)
+      $("#modalSuccess").modal("show");
+
                     window.location.href = "/home.html";
                 }
 
@@ -148,5 +140,50 @@ function iniciar() {
 
 }
 
+
+
+function loguearGoogle() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        console.log(result);
+       var nombre= result.user.displayName;
+       var correo=result.user.email;
+       var firabaseId= result.user.uid;
+       var urlFoto= result.user.photoURL;
+       $.ajax({
+        url: "/usuarios/inciar-sesion-google",
+        method: "POST",
+        data: `nombre=${nombre}&correo=${correo}&firabaseId=${firabaseId}&urlFoto=${urlFoto}`,
+        dataType: "json", //json
+        success: function (respuesta) { //200 OK
+
+            if (respuesta.estado == 1) {
+                console.log(respuesta);
+                alert(respuesta.mensaje);
+
+            } else if (respuesta.estado == 0) {
+                console.log(respuesta);
+                
+                $(".alert-success").html(`
+      <strong>Success!</strong> Login Exitoso
+      `)
+      $("#modalSuccess").modal("show");
+
+                window.location.href = "/home.html";
+            }
+
+        },
+        error: function (error) {
+            console.error(error);
+        }
+    });
+
+        // Llamar a NodeJS
+    }).catch(function (error) {
+        console.log(error);
+    });
+    console.log('logueando con google');
+}
 
 
